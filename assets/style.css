@@ -38,30 +38,16 @@ body {
 
 .container {
     text-align: center;
-    margin: 2%;
-    padding: 4%;
+    margin: 4%;
+    padding: 6%;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-
 }
 
-#part1, #part2 {
-    margin: 2%;
-    padding: 1%
-}
-
-#part3 {
-    text-align: center; 
-    margin: 0;
-    align-self: center;
-}
-
-button {
-    border-radius: 4%;
-    padding: 8%;
-    font-size: 100%;
+#part1, #part2, #part3 {
+    padding: 4%;
 }
