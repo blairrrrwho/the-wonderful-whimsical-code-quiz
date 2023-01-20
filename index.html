@@ -10,33 +10,36 @@
 
 <body>
     <header>
-        <nav>
+        <nav class="nav">
             <!-- View High Scores; top left; clickable and shows logged scores  -->
-            <p>View High Scores</p>
+            <a id="highscore">View High Scores</a>
             <!-- Timer -->
-            <p>Time</p>
+            <div id="timer">Timer</div>
         </nav>
     </header>
 
-    <div>
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit.<br>
-            Keep in mind that incorrect answers will penalize your score and time by ten seconds!
-        </p>
-    </div>
-
-    <div>
-        <button>Start Quiz</button>
-    </div>
-
-    <div>
-        <p></p>
-    </div>
+    <main class="container">
         
+        <div id="part1">
+            <h1>Coding Quiz Challenge</h1>
+        </div>
+
+        <div id="part2">
+            <p>Try to answer the following code-related questions within the time limit.<br>
+                Keep in mind that incorrect answers will penalize your score and time by ten seconds!
+            </p>
+        </div>
+    
+        <div id="part3">
+            <button #="start">Start Quiz</button>
+        </div>
+    
+    </main>
+
     
     
     
-    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 
 </html>

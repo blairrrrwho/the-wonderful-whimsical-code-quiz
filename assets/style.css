@@ -1,0 +1,67 @@
+:root {
+    --navy: rgba(27, 27, 93, 0.95);
+    --olive: rgba(79, 109, 94, 0.715);
+    --welcome-gray: rgba(255, 255, 255, 0.634);
+    --green: #163f30bd;
+    --backgroundcolor: rgba(210, 210, 162, 0.598);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--olive);
+    font-family: 'Cambria', Cochin, Georgia, sans-serif, serif;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: space-between;
+    margin: 2%; 
+    padding: 2%;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+#highscore {
+    justify-content: flex-start;
+}
+
+#timer {
+    justify-content: flex-end;
+}
+
+.container {
+    text-align: center;
+    margin: 2%;
+    padding: 4%;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+}
+
+#part1, #part2 {
+    margin: 2%;
+    padding: 1%
+}
+
+#part3 {
+    text-align: center; 
+    margin: 0;
+    align-self: center;
+}
+
+button {
+    border-radius: 4%;
+    padding: 8%;
+    font-size: 100%;
+}
