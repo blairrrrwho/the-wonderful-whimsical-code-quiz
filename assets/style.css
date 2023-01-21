@@ -28,11 +28,13 @@ body {
     font-weight: 600;
 }
 
-#highscore {
+#viewhighscore {
     justify-content: flex-start;
     color: rgba(114, 29, 118, 0.826);
     cursor: pointer;
+    text-decoration: none;
 }
+
 
 #highscore:hover {
     color: var(--navy);
@@ -45,21 +47,33 @@ body {
 
 .homepage {
     text-align: center;
-    margin: 2%;
-    padding: 4%;
+    margin: 1%;
+    padding: 1%;
     font-size: 1.75em;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
 }
 
-.h1style, .pstyle, .btn-style, .divbutton, .h5style{
-    padding: 2%;
+.btn-ctrl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#start {
+#choice-btn .btn-ctrl {
+    width: 100px;
+    height: 100px;
+}
+
+.h1style, .pstyle, .btn, #choice-btn, .h5style, #multiple-choice{
+    padding: 2%;
+    margin: 1%;
+}
+
+#choice-btn button{
     background-color: var(--navy);
     color: rgba(255, 255, 255, 0.918);
     font-size: 80%;
@@ -69,11 +83,14 @@ body {
     width: 40%;
 }
 
-#start:hover {
+#choice-btn button:hover {
     background-color: rgba(218, 165, 32, 0.607);
 }
 
 .h5style {
     color: rgba(34, 29, 74, 0.436);
-    display:none;
 }
+
+.hidden {
+    display: none;
+} 

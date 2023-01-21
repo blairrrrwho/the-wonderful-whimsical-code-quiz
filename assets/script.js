@@ -1,6 +1,6 @@
-const part1 = document.getElementById("part1");
-const part2 = document.getElementById("part2");
-const myBtn1 = document.getElementById("btn");
+// const part1 = document.getElementById("part1");
+// const part2 = document.getElementById("part2");
+// const myBtn1 = document.getElementById("btn");
 
 // functionStart = function () {}
 // myBtn.addEventListener("click", nameoffunction); 
