@@ -30,10 +30,17 @@ body {
 
 #highscore {
     justify-content: flex-start;
+    color: rgba(114, 29, 118, 0.826);
+    cursor: pointer;
+}
+
+#highscore:hover {
+    color: var(--navy);
 }
 
 #timer {
     justify-content: flex-end;
+    color: --navy;
 }
 
 .container {
@@ -50,4 +57,14 @@ body {
 
 #part1, #part2, #part3 {
     padding: 4%;
+}
+
+#start {
+    background-color: var(--navy);
+    color: white;
+    font-size: large;
+    border-radius: 7%;
+    padding:3%;
+    max-width: 50%;
+    cursor: pointer;
 }
