@@ -9,30 +9,54 @@
 </head>
 
 <body>
-    <header>
-        <nav class="nav">
-            <!-- View High Scores; top left; clickable and shows logged scores  -->
-            <a id="highscore">View High Scores</a>
-            <!-- Timer -->
-            <div id="timer">Timer</div>
-        </nav>
-    </header>
+    <!-- nav bar - stays here at the top; only thing that changes is the timer-->
+    <nav class="nav">
+        <!-- View High Scores; top left; clickable and shows logged scores  -->
+        <a id="highscore">View High Scores</a>
+        <!-- Timer -->
+        <div id="timer">Timer: 75</div>
+    </nav>
 
-    <main class="container">
-        
-        <div id="part1">
-            <h1>Coding Quiz Challenge</h1>
-        </div>
+    <!-- Part 1 - the homepage with a title, instructions, and the start button -->
+    <section class="homepage">
+        <h1>Coding Quiz Challenge</h1><br>
+        <p>Try to answer the following code-related questions within the time limit.<br>
+            Keep in mind that incorrect answers will penalize your score and time by ten seconds!
+        </p>
+        <button id="start">Start Quiz</button>
+        <h3>right or wrong?</h3>
 
-        <div id="part2">
-            <p>Try to answer the following code-related questions within the time limit.<br>
-                Keep in mind that incorrect answers will penalize your score and time by ten seconds!
-            </p>
+    </section>
+
+
+    <!-- Part 2 - the layout of each question page -->
+    <section class="multiple-choice">
+        <h1 id="question">Question</h1>
+        <div class="choice-buttons">
+            <button id="choice1"></button>
+            <button id="choice2">this is choice 2</button>
+            <button id="choice3">this is choice 3</button>
+            <button id="choice4">this is choice 4</button>
         </div>
-    
-        <div id="part3">
-            <button id="start">Start Quiz</button>
-        </div>
+    </section>
+
+
+    <!-- Part 3 - the high score input form -->
+    <section class="score-input">
+        <h1>All done!</h1>
+        <p>Your final score is .....</p>
+        <form></form> 
+            <!-- text: enter initials; clickable textbox to receive input; submit btn -->
+    </section>
+
+
+    <!-- Part 4 - the View High Scores nav link -->
+    <section id="score-log" class="results">
+        <h1>High Scores:</h1>
+        <!-- results box for high score -->
+        <button>Restart Quiz</button> <button>Clear High Scores</button>
+    </section>
+  
 
      <!-- Questions to put in 
         //Commonly used data types DO NOT include:
@@ -94,9 +118,6 @@
             //4. onmouseover
      -->
 
-    </main>
-
-    
     
     
     <script type="text/javascript" src="./assets/script.js"></script>

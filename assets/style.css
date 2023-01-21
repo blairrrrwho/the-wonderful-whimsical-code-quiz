@@ -59,7 +59,7 @@ body {
     padding: 4%;
 }
 
-#start {
+#btn {
     background-color: var(--navy);
     color: white;
     font-size: large;
@@ -69,6 +69,6 @@ body {
     cursor: pointer;
 }
 
-#start:hover {
+#btn:hover {
     background-color: goldenrod;
 }
