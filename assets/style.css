@@ -45,7 +45,7 @@ body {
     color: --navy;
 }
 
-.homepage {
+#homepage {
     text-align: center;
     margin: 1%;
     padding: 1%;
