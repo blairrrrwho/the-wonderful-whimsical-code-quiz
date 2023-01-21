@@ -43,11 +43,11 @@ body {
     color: --navy;
 }
 
-.container {
+.homepage {
     text-align: center;
-    margin: 4%;
-    padding: 6%;
-    font-size: 1.5em;
+    margin: 2%;
+    padding: 4%;
+    font-size: 1.75em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -55,20 +55,25 @@ body {
     justify-content: center;
 }
 
-#part1, #part2, #part3 {
-    padding: 4%;
+.h1style, .pstyle, .btn-style, .divbutton, .h5style{
+    padding: 2%;
 }
 
-#btn {
+#start {
     background-color: var(--navy);
-    color: white;
-    font-size: large;
-    border-radius: 7%;
-    padding:3%;
-    max-width: 50%;
+    color: rgba(255, 255, 255, 0.918);
+    font-size: 80%;
+    border-radius: 10%;
     cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 40%;
 }
 
-#btn:hover {
-    background-color: goldenrod;
+#start:hover {
+    background-color: rgba(218, 165, 32, 0.607);
+}
+
+.h5style {
+    color: rgba(34, 29, 74, 0.436);
+    display:none;
 }

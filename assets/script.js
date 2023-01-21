@@ -8,11 +8,11 @@ const myBtn1 = document.getElementById("btn");
 
 
 
-part1.querySelector("h1").innerHTML = "this fucking sucks";
+// part1.querySelector("h1").innerHTML = "this fucking sucks";
 
 
-part2.querySelector("button").innerHTML = "this is an answer";
+// part2.querySelector("button").innerHTML = "this is an answer";
 
-const myBtn2 = document.createElement("button");
-myBtn2.innerHTML = "this is another fucking button";
-document.getElementById("part2").appendChild(myBtn2);
+// const myBtn2 = document.createElement("button");
+// myBtn2.innerHTML = "this is another fucking button";
+// document.getElementById("part2").appendChild(myBtn2);
