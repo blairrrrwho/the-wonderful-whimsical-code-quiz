@@ -68,3 +68,7 @@ body {
     max-width: 50%;
     cursor: pointer;
 }
+
+#start:hover {
+    background-color: goldenrod;
+}
