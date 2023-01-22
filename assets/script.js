@@ -50,13 +50,14 @@ function selectAnswer() {
 }
 
 
-// List of questions initialized as an array
-// The first object in the array is going to be the first question 
-// Each question is going to have some elements:
-//   ^The first one is going to be the actual question itself, which is just the text of the question
-// Then there will be an array which will have our answers
-// Answers are going to have an ojbect which is going to have a text keyword -- the correct answer
-
+// List of questions initialized a giant array
+// Inside of the array, we have 10 objects - each object poses as one of our questions
+// Inside of each question we have a few elements: a question property and an answers property
+// The question property contains a string
+// The answers property contains an array of four objects 
+// Within each of those objects is text property containing a string, and a correct property containing a boolean
+// The boolean keys out our correct answer value 
+// Inserted a comment above each question to number strictly for my own reference and editing purposes
 const questions = [
     {
         // Question #1
