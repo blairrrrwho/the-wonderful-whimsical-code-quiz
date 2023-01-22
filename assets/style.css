@@ -93,7 +93,7 @@ body {
     background-color: var(--incorrect);
   }
 
-#h3-style {
+.h3-style {
     color:  rgba(114, 29, 118, 0.826);
 }
 

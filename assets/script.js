@@ -4,14 +4,50 @@ const homePage = document.getElementById("homepage");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-btns");
+const correctAnsDisplay = document.getElementById("correct-ans");
+const incorrectAnsDisplay = document.getElementById("incorrect-ans");
 
 // Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
 let currentQuestionIndex;
 
-startButton.addEventListener("click", startGame);
+// var state = {
+//     element: {
+//         backButton: document.getElementById('back-btn')
+//     },
+//     quizState: {
+//         score: 0,
+//         timeRemaining: 60,
+//         timeInterval: null,
+//         shuffledQuestions: null,
+//         currentQuestionIndex: null
+//     }
+// }
 
-// What needs to happen when you click the start button 
+// // ! timer function
+// function countdown() {
+//     state.quizState.timeRemaining = 60;
+//     timer.textContent = state.quizState.timeRemaining;
+//     state.quizState.timeInterval = setInterval(function () {
+//         if (state.quizState.timeRemaining > 0) {
+//             state.quizState.timeRemaining--;
+//             timer.textContent = state.quizState.timeRemaining;
+//         } else {
+//             timer.textContent = (' ');
+//             clearInterval(state.quizState.timeInterval)
+//             getInitialsPage()
+//         }
+//     }, 1000)
+// }
+
+
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++
+    setNextQuestion();
+})
+
+// What needs to happen when you click the start button -- Starts the game function
 function startGame() {
     // Test to make sure our startGame function is being called w/startBtn when clicked
     console.log("started");
@@ -26,8 +62,16 @@ function startGame() {
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove("hide");
     // First thing our startGame should do is show the next set of questions
-    setNextQuestion()
+    setNextQuestion();
+    // countdown();
 
+    // state.quizState.shuffledQuestions = questions.sort(() => Math.random() - .5)
+    // state.quizState.currentQuestionIndex = 0
+    // questionContainerElement.classList.remove('hide')
+    // timer.classList.remove('hide')
+    // timeText.classList.remove("hide");
+    // setNextQuestion();
+    // countdown();
 
 
 }
@@ -39,6 +83,8 @@ function setNextQuestion() {
     resetState()
     // Want to get and show the next question; create a function and put shuffledQuestions inside parameter
     showQuestion(shuffledQuestions[currentQuestionIndex])
+    // showQuestion(state.quizState.shuffledQuestions[state.quizState.currentQuestionIndex])
+
 }
 
 function showQuestion (question) {
@@ -53,9 +99,9 @@ function showQuestion (question) {
             // Because they are just going to be strings, not actual booleans
             button.dataset.correct = answer.correct;
         }
-            button.addEventListener("click", selectAnswer);
-            // Adds this to the answerButtonsElement
-            answerButtonsElement.appendChild(button);
+        button.addEventListener("click", selectAnswer);
+        // Adds this to the answerButtonsElement
+        answerButtonsElement.appendChild(button);
     })
 }
 
@@ -76,6 +122,11 @@ function selectAnswer(event) {
     const selectedButton = event.target;
     // Created variable checks to see if it's the correct answer or not
     const correct = selectedButton.dataset.correct;
+    
+    // if (correct === undefined) {
+    //     state.quizState.timeRemaining -= 10
+    // }
+
     // Create a function to set the status class of our body
     // It's going to take whether or not it actually should be set to correct or incorrect
     setStatusClass(document.body, correct);
@@ -86,6 +137,12 @@ function selectAnswer(event) {
         // Want to set the status on whether or not that answer was a correct answer
         setStatusClass(button, button.dataset.correct)
     })
+    nextButton.classList.remove("hide");
+    // if (state.quizState.shuffledQuestions.length > state.quizState.currentQuestionIndex + 1) {
+    //     nextButton.classList.remove('hide')
+    // } else {
+    //     getInitialsPage()
+    // }
 }
 
 // Defining setStatusClass function
@@ -95,9 +152,14 @@ function setStatusClass(element, correct) {
     if (correct) {
         element.classList.add("correct");
     } else {
-        element.classList.add("incorrect");
+        element.classList.add("incorrect"); 
     }
-    console.log(setStatusClass)
+// doesn't work to display correct or incorrect on screen
+    // if (correct) {
+    //     correctAnsDisplay.classList.remove("hide");
+    // } else {
+    //     incorrectAnsDisplay.classList.remove("hide");
+    // }
 }
 
 // Defining clearStatusClass function; takes the element in the parameter 
