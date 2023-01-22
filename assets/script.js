@@ -1,8 +1,9 @@
 const startButton = document.getElementById("start-button");
+const nextButton = document.getElementById("next-btn");
 const homePage = document.getElementById("homepage");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
-const answerButtonElement = document.getElementById("answer-btns");
+const answerButtonsElement = document.getElementById("answer-btns");
 
 // Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
@@ -34,18 +35,43 @@ function startGame() {
 // Function that will set up the next question
 // Next button or set up so that choice clicked from previous question acts as next button
 function setNextQuestion() {
-    // Want to get nd show the next question; create a function and put in shuffledQuestions
+    // Resets everything back to its default state every time we set a new question
+    resetState()
+    // Want to get and show the next question; create a function and put shuffledQuestions inside parameter
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion (question) {
     questionElement.innerText = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        if (answer.correct) {
+            // Adds a data attribute to the newly created button
+            // We don't do so for the false answers bc we don't want them in our data attribute
+            // Because they are just going to be strings, not actual booleans
+            button.dataset.correct = answer.correct;
+        }
+            button.addEventListener("click", selectAnswer);
+            // Adds this to the answerButtonsElement
+            answerButtonsElement.appendChild(button);
+    })
+}
+
+function resetState() {
+    // Either use Next button and uncomment in HTML, or pray to satan that this works
+    nextButton.classList.add("hide");
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
 }
 
 
-
 // Does something when the user selects an answer
-function selectAnswer() {
+// Takes in our even from above as a parameter 
+function selectAnswer(event) {
 
 }
 
