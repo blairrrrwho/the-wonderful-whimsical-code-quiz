@@ -21,7 +21,7 @@
         </nav>
 
         <!-- Part 1 - the homepage with a title, instructions, and the start button -->
-        <section id="homepage">
+        <section id="homepage" class="h-style">
             <h1>Coding Quiz Challenge</h1> <br><br>
             <p>
                 Try to answer the following code-related questions within the time limit.<br>
@@ -36,12 +36,12 @@
         <!-- Part 2 - The loop of questions -->
         <!-- Container w/questions that will show after the quiz starts -->
         <div id="question-container" class="hide"></div>
-            <div id="question">
+            <div id="question" class="h-style hide">
                 <h2>Question 1/10</h2> <br><br>
                 <p>al;sdjf;alsdjkf</p>
             </div>
 
-            <div id="answer-btns" class="btn-flex">
+            <div id="answer-btns" class="btn-flex hide">
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
                 <button class="btn">Answer 3</button>
@@ -49,16 +49,16 @@
             </div>
 
         <!-- Container for button controls -->
-        <div id="controls" class="btn-flex">
+        <div id="controls" class="btn-flex hide">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn">Next</button>
         </div>
 
         <!-- Part that will class Correct/Incorrect after response is chosen -->
-        <h3 id="h3-style">Correct :o) / Incorrect :'(</h3>
+        <h3 id="h3-style" class="h-style hide">Correct :o) / Incorrect :'(</h3>
 
         <!-- Part 3 - the high score input form -->
-        <section id="score-input">
+        <section id="score-input" class="h-style hide">
             <h2>All done!</h2> <br><br>
             <p>Your final score is .....</p>
             <form></form> 
@@ -67,7 +67,7 @@
 
 
         <!-- Part 4 - the View High Scores nav link -->
-        <section id="score-log" class="results">
+        <section id="score-log" class="h-style hide">
             <h2>High Scores:</h2> <br><br>
             <!-- results box for high score -->
             <div id="form-btns" class="btn-flex">

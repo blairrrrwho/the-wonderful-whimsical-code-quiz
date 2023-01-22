@@ -45,8 +45,7 @@ body {
     color: --navy;
 }
 
-#homepage, #question-container, #question, #h3-style, #score-input, 
-#score-log {
+.h-style {
     text-align: center;
     margin: 1%;
     padding: 2%;
@@ -89,5 +88,5 @@ body {
 }
 
 .hide {
-   
+   display: none;
 } 
