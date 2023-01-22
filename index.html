@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
+    <title>Code Quiz App</title>
     <link rel="stylesheet" type="text/css" href="./assets/style.css"/>
+    <script defer type="text/javascript" src="./assets/script.js"></script>
 </head>
 
 <body>
-    <!-- Entire wrapper/container -->
+    <!-- The main container card for all of our content -->
     <div class="container">
         <!-- nav bar - stays here at the top; only thing that changes is the timer-->
         <nav class="nav">
@@ -21,38 +22,44 @@
 
         <!-- Part 1 - the homepage with a title, instructions, and the start button -->
         <section id="homepage">
-            <h1 class="h1style">
-                Coding Quiz Challenge
-            </h1>
-                <br><br>
-            <p class="pstyle">
+            <h1>Coding Quiz Challenge</h1> <br><br>
+            <p>
                 Try to answer the following code-related questions within the time limit.<br>
                 Keep in mind that incorrect answers will penalize your score and time by ten seconds!
-            </p>
-                <br>
-            <div id="choice-btn" class="btn-ctrl">
+            </p> <br>
+            <div id="starter-button" class="btn-grid">
                 <button id=start-button class="btn">Start Quiz</button>
             </div>
+            <!-- ^^^^ hide this if don't need -->
         </section>
 
-
-        <!-- Part 2 - the layout of each question page -->
-        <section id="multiple-choice" class="hidden">
-            <h1 id="question">Question</h1>
-            <div id="choice-btn" class="btn-ctrl">
-                <button class="btn">this is choice 1</button>
-                <button class="btn">this is choice 2</button>
-                <button class="btn">this is choice 3</button>
-                <button class="btn">this is choice 4</button>
+        <!-- Part 2 - The loop of questions -->
+        <!-- Container w/questions that will show after the quiz starts -->
+        <div id="question-container" class="hide"></div>
+            <div id="question">
+                <h2>Question 1/10</h2> <br><br>
+                <p>al;sdjf;alsdjkf</p>
             </div>
-        </section>
 
+            <div id="answer-btns" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
 
-        <h5 class="h5style hidden">right or wrong?</h5>
+        <!-- Container for button controls -->
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn">Next</button>
+        </div>
+
+        <!-- Part that will class Correct/Incorrect after response is chosen -->
+        <h3 id="h3-style" class="h-style">Correct :o) / Incorrect :'(</h3>
 
         <!-- Part 3 - the high score input form -->
-        <section class="score-input hidden">
-            <h1>All done!</h1>
+        <section id="score-input">
+            <h2>All done!</h2> <br><br>
             <p>Your final score is .....</p>
             <form></form> 
                 <!-- text: enter initials; clickable textbox to receive input; submit btn -->
@@ -60,11 +67,13 @@
 
 
         <!-- Part 4 - the View High Scores nav link -->
-        <section id="score-log" class="results hidden">
-            <h1>High Scores:</h1>
+        <section id="score-log" class="results">
+            <h2>High Scores:</h2>
             <!-- results box for high score -->
-            <button>Restart Quiz</button> <button>Clear High Scores</button>
-
+            <div id="form-btns" class="btn-grid"></div>
+                <button id="restart-btn" class="restart-btn btn">Restart Quiz</button> 
+                <button id="clear-btn" class="clear-btn btn">Clear High Scores</button>
+        </div>
         </section>
   
 
@@ -129,8 +138,6 @@
      -->
 
     </div>
-    
-    <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 
 </html>

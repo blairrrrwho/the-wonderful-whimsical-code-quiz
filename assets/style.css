@@ -6,15 +6,15 @@
     --backgroundcolor: rgba(210, 210, 162, 0.598);
 }
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
+    font-family: 'Cambria', Cochin, Georgia, sans-serif, serif;
     padding: 0;
     margin: 0;
 }
 
 body {
     background-color: var(--olive);
-    font-family: 'Cambria', Cochin, Georgia, sans-serif, serif;
 }
 
 .nav {
@@ -22,7 +22,8 @@ body {
     flex-wrap: wrap;
     flex-direction:row;
     justify-content: space-between;
-    margin: 2%; 
+    align-items: center;
+    margin: 3%; 
     padding: 2%;
     font-size: 1.5em;
     font-weight: 600;
@@ -35,7 +36,6 @@ body {
     text-decoration: none;
 }
 
-
 #highscore:hover {
     color: var(--navy);
 }
@@ -45,11 +45,12 @@ body {
     color: --navy;
 }
 
-#homepage {
+#homepage, #question-container, #question, #h3-style, #score-input, 
+#score-log {
     text-align: center;
     margin: 1%;
-    padding: 1%;
-    font-size: 1.75em;
+    padding: 2%;
+    font-size: 1.80em;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -57,40 +58,26 @@ body {
     justify-content: center;
 }
 
-.btn-ctrl {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#choice-btn .btn-ctrl {
-    width: 100px;
-    height: 100px;
-}
-
-.h1style, .pstyle, .btn, #choice-btn, .h5style, #multiple-choice{
+.btn {
+    background-color: var(--navy);
+    color: rgba(255, 255, 255, 0.918);
+    font-size: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;;
+    cursor: pointer;
+    width: 25%;
     padding: 2%;
     margin: 1%;
 }
 
-#choice-btn button{
-    background-color: var(--navy);
-    color: rgba(255, 255, 255, 0.918);
-    font-size: 80%;
-    border-radius: 10%;
-    cursor: pointer;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    width: 40%;
-}
-
-#choice-btn button:hover {
+.btn:hover {
     background-color: rgba(218, 165, 32, 0.607);
 }
 
-.h5style {
-    color: rgba(34, 29, 74, 0.436);
+#h3-style {
+    color:  rgba(114, 29, 118, 0.826);
 }
 
-.hidden {
-    display: none;
+.hide {
+   
 } 
