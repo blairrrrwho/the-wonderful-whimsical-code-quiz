@@ -60,7 +60,7 @@ function showQuestion (question) {
 }
 
 function resetState() {
-    // Either use Next button and uncomment in HTML, or pray to satan that this works
+    // Use next button to target this; clears out the default values in HTML and doesn't show them
     nextButton.classList.add("hide");
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
@@ -72,8 +72,41 @@ function resetState() {
 // Does something when the user selects an answer
 // Takes in our even from above as a parameter 
 function selectAnswer(event) {
-
+    // This is just whatever button the user clicks on
+    const selectedButton = event.target;
+    // Created variable checks to see if it's the correct answer or not
+    const correct = selectedButton.dataset.correct;
+    // Create a function to set the status class of our body
+    // It's going to take whether or not it actually should be set to correct or incorrect
+    setStatusClass(document.body, correct);
+    // We need to loop through all of the other buttons and select and set the class for them
+    // Convert this to an array bc this is returning a live collection; need to use for the for each loop
+    Array.from(answerButtonsElement.children).forEach(button => {
+        // Set the status for the other buttons
+        // Want to set the status on whether or not that answer was a correct answer
+        setStatusClass(button, button.dataset.correct)
+    })
 }
+
+// Defining setStatusClass function
+// In the parameters we are going to take an element, and whether or not it is correct
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add("correct");
+    } else {
+        element.classList.add("incorrect");
+    }
+    console.log(setStatusClass)
+}
+
+// Defining clearStatusClass function; takes the element in the parameter 
+// Want to remove these classes instead of add them
+function clearStatusClass (element) {
+    element.classList.remove("correct");
+    element.classList.remove("incorrect");
+}
+
 
 
 // List of questions initialized a giant array
