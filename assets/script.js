@@ -1,6 +1,12 @@
 const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("homepage");
 const questionContainerElement = document.getElementById("question-container");
+const questionElement = document.getElementById("question");
+const answerButtonElement = document.getElementById("answer-btns");
+
+// Defaults both of these values to undefined, which is OK for what we need these variables for
+let shuffledQuestions;
+let currentQuestionIndex;
 
 startButton.addEventListener("click", startGame);
 
@@ -11,6 +17,12 @@ function startGame() {
     // Need to hide the startBtn + title page; need to display the first set of questions
     startButton.classList.add("hide");
     homePage.classList.add("hide");
+    // Shuffles all of the questions so that Question #1 won't always show up as the fist one, etc.
+    // Math.random() gives us a number between 0 and 1
+    // We subtract that by 0.5 to get a number either <0 or >0 50% of the time, which gives us a completely random array
+    shuffledQuestions = questions.sort(() => Math.random()- 0.5);
+    // Set to 0 since we're starting on the first question of our shuffled questions array
+    currentQuestionIndex = 0;
     questionContainerElement.classList.remove("hide");
     // First thing our startGame should do is show the next set of questions
     setNextQuestion()
@@ -22,8 +34,15 @@ function startGame() {
 // Function that will set up the next question
 // Next button or set up so that choice clicked from previous question acts as next button
 function setNextQuestion() {
-
+    // Want to get nd show the next question; create a function and put in shuffledQuestions
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 }
+
+function showQuestion (question) {
+    questionElement.innerText = question.question;
+}
+
+
 
 // Does something when the user selects an answer
 function selectAnswer() {
@@ -33,7 +52,7 @@ function selectAnswer() {
 
 // List of questions initialized as an array
 // The first object in the array is going to be the first question 
-// each question is going to have some elements:
+// Each question is going to have some elements:
 //   ^The first one is going to be the actual question itself, which is just the text of the question
 // Then there will be an array which will have our answers
 // Answers are going to have an ojbect which is going to have a text keyword -- the correct answer
