@@ -12,6 +12,8 @@ function startGame() {
     startButton.classList.add("hide");
     homePage.classList.add("hide");
     questionContainerElement.classList.remove("hide");
+    // First thing our startGame should do is show the next set of questions
+    setNextQuestion()
 
 
 
@@ -27,3 +29,124 @@ function setNextQuestion() {
 function selectAnswer() {
 
 }
+
+
+// List of questions initialized as an array
+// The first object in the array is going to be the first question 
+// each question is going to have some elements:
+//   ^The first one is going to be the actual question itself, which is just the text of the question
+// Then there will be an array which will have our answers
+// Answers are going to have an ojbect which is going to have a text keyword -- the correct answer
+
+const questions = [
+    {
+        // Question #1
+        question: "Arrays in JavaScript can be used to store _______.",
+        answers: 
+        [
+            { text: "Numbers and strings", correct: false },
+            { text: "Other arrays", correct: false },
+            { text: "Booleans", correct: false },
+            { text: "All of the above", correct: true }
+        ]
+    },
+    {
+        // Question #2
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: 
+        [
+            { text: "JavaScript", correct: false },
+            { text: "Terminal/Bash", correct: false },
+            { text: "for loops", correct: false },
+            { text: "console.log()", correct: true }
+        ]
+    },
+    {
+        // Question #3
+        question: "Which event occurs when the user clicks on an HTML element?",
+        answers: 
+        [
+            { text: "onmouseclick", correct: false },
+            { text: "onchange", correct: false },
+            { text: "onclick", correct: true },
+            { text: "onmouseover", correct: false }
+        ]
+    },
+    {
+        // Question #4
+        question: "How can you add a comment in JavaScript?",
+        answers: 
+        [
+            { text: "// This is a comment", correct: true },
+            { text: "`This is a comment`", correct: false },
+            { text: "<!-- This is a comment --!>", correct: false },
+            { text: "all of the above", correct: false }
+        ]
+    },
+    {
+        // Question #5
+        question: "Commonly used data types DO NOT include:",
+        answers: 
+        [
+            { text: "Strings", correct: false },
+            { text: "Alerts", correct: true },
+            { text: "Booleans", correct: false },
+            { text: "Numbers", correct: false }
+        ]
+    },
+    {
+        // Question #6
+        question: "The condition in an if/else statement is enclosed with _______",
+        answers: 
+        [
+            { text: "Parenthesis", correct: true },
+            { text: "Quotes", correct: false },
+            { text: "Square brackets", correct: false },
+            { text: "Curly braces", correct: false }
+        ]
+    },
+    {
+        // Question #7
+        question: "Which operator is used to assign a value to a variable?",
+        answers: 
+        [
+            { text: "==", correct: false },
+            { text: "===", correct: false },
+            { text: "+=", correct: false },
+            { text: "=", correct: true }
+        ]
+    },
+    {
+        // Question #8
+        question: "String values must be enclosed within ______ when being assigned to variables",
+        answers: 
+        [
+            { text: "Square brackets", correct: false },
+            { text: "Parenthesis", correct: false },
+            { text: "Quotes", correct: true },
+            { text: "Curly braces", correct: false }
+        ]
+    },     
+    {
+        // Question #9
+        question: "Inside of which HTML element do we put any JavaScript?",
+        answers: 
+        [
+            { text: "<header> </header> tag", correct: false },
+            { text: "<script> </script> tag", correct: true },
+            { text: "You don't; it goes elsewhere", correct: false },
+            { text: "Wherever you want", correct: false }
+        ]
+    },     
+    {
+        // Question #10
+        question: "How many hours/days did it take blair to create this quiz applicatoin?",
+        answers: 
+        [
+            { text: "3.5 days and 4 hours", correct: false },
+            { text: "Probably about a day or so", correct: false },
+            { text: "No more than a week", correct: false },
+            { text: "Light years", correct: true }
+        ]
+    }      
+]
