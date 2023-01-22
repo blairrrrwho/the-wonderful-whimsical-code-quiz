@@ -137,12 +137,12 @@ function selectAnswer(event) {
         // Want to set the status on whether or not that answer was a correct answer
         setStatusClass(button, button.dataset.correct)
     })
-    nextButton.classList.remove("hide");
-    // if (state.quizState.shuffledQuestions.length > state.quizState.currentQuestionIndex + 1) {
-    //     nextButton.classList.remove('hide')
-    // } else {
-    //     getInitialsPage()
-    // }
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove("hide");
+    } else { 
+        getInitialsPage()
+        // ^^^^^^ need to create and define
+    }
 }
 
 // Defining setStatusClass function
