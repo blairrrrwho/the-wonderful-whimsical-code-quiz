@@ -74,6 +74,16 @@ body {
     background-color: rgba(218, 165, 32, 0.607);
 }
 
+.btn-flex {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(1);
+    gap: 5px;
+    margin: 10px, 0;
+    align-items: center;
+    ;
+}
+
 #h3-style {
     color:  rgba(114, 29, 118, 0.826);
 }

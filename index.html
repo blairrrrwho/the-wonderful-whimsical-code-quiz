@@ -27,7 +27,7 @@
                 Try to answer the following code-related questions within the time limit.<br>
                 Keep in mind that incorrect answers will penalize your score and time by ten seconds!
             </p> <br>
-            <div id="starter-button" class="btn-grid">
+            <div id="starter-button" class="btn-flex">
                 <button id=start-button class="btn">Start Quiz</button>
             </div>
             <!-- ^^^^ hide this if don't need -->
@@ -41,7 +41,7 @@
                 <p>al;sdjf;alsdjkf</p>
             </div>
 
-            <div id="answer-btns" class="btn-grid">
+            <div id="answer-btns" class="btn-flex">
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
                 <button class="btn">Answer 3</button>
@@ -49,13 +49,13 @@
             </div>
 
         <!-- Container for button controls -->
-        <div class="controls">
+        <div id="controls" class="btn-flex">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn">Next</button>
         </div>
 
         <!-- Part that will class Correct/Incorrect after response is chosen -->
-        <h3 id="h3-style" class="h-style">Correct :o) / Incorrect :'(</h3>
+        <h3 id="h3-style">Correct :o) / Incorrect :'(</h3>
 
         <!-- Part 3 - the high score input form -->
         <section id="score-input">
@@ -68,11 +68,12 @@
 
         <!-- Part 4 - the View High Scores nav link -->
         <section id="score-log" class="results">
-            <h2>High Scores:</h2>
+            <h2>High Scores:</h2> <br><br>
             <!-- results box for high score -->
-            <div id="form-btns" class="btn-grid"></div>
+            <div id="form-btns" class="btn-flex">
                 <button id="restart-btn" class="restart-btn btn">Restart Quiz</button> 
                 <button id="clear-btn" class="clear-btn btn">Clear High Scores</button>
+            </div>
         </div>
         </section>
   
