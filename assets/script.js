@@ -107,6 +107,7 @@ function showQuestion (question) {
 
 function resetState() {
     // Use next button to target this; clears out the default values in HTML and doesn't show them
+    clearStatusClass(document.body) 
     nextButton.classList.add("hide");
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
@@ -148,12 +149,13 @@ function selectAnswer(event) {
 // Defining setStatusClass function
 // In the parameters we are going to take an element, and whether or not it is correct
 function setStatusClass(element, correct) {
-    clearStatusClass(element)
+    // clearStatusClass(element)
     if (correct) {
-        element.classList.add("correct");
+        element.classList.add("correct"); correctAnsDisplay.classList.remove("hide");
     } else {
-        element.classList.add("incorrect"); 
+        element.classList.add("incorrect"); incorrectAnsDisplay.classList.remove("hide")
     }
+
 // doesn't work to display correct or incorrect on screen
     // if (correct) {
     //     correctAnsDisplay.classList.remove("hide");
@@ -167,6 +169,8 @@ function setStatusClass(element, correct) {
 function clearStatusClass (element) {
     element.classList.remove("correct");
     element.classList.remove("incorrect");
+    correctAnsDisplay.classList.add("hide");
+    incorrectAnsDisplay.classList.add("hide");
 }
 
 
