@@ -134,7 +134,7 @@ function clearStatusClass (element) {
     incorrectAnsDisplay.classList.add("hide");
 }
 
-
+  
 
 // List of questions initialized a giant array
 // Inside of the array, we have 10 objects - each object poses as one of our questions
