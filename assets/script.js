@@ -12,7 +12,6 @@ let shuffledQuestions;
 let currentQuestionIndex;
 
 
-
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++
@@ -35,6 +34,7 @@ function startGame() {
     questionContainerElement.classList.remove("hide");
     // First thing our startGame should do is show the next set of questions
     setNextQuestion();
+
 }
 
 // Function that will set up the next question
@@ -134,7 +134,7 @@ function clearStatusClass (element) {
     incorrectAnsDisplay.classList.add("hide");
 }
 
-  
+
 
 // List of questions initialized a giant array
 // Inside of the array, we have 10 objects - each object poses as one of our questions
