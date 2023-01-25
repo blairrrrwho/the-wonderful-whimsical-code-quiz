@@ -11,34 +11,6 @@ const incorrectAnsDisplay = document.getElementById("incorrect-ans");
 let shuffledQuestions;
 let currentQuestionIndex;
 
-// var state = {
-//     element: {
-//         backButton: document.getElementById('back-btn')
-//     },
-//     quizState: {
-//         score: 0,
-//         timeRemaining: 60,
-//         timeInterval: null,
-//         shuffledQuestions: null,
-//         currentQuestionIndex: null
-//     }
-// }
-
-// // ! timer function
-// function countdown() {
-//     state.quizState.timeRemaining = 60;
-//     timer.textContent = state.quizState.timeRemaining;
-//     state.quizState.timeInterval = setInterval(function () {
-//         if (state.quizState.timeRemaining > 0) {
-//             state.quizState.timeRemaining--;
-//             timer.textContent = state.quizState.timeRemaining;
-//         } else {
-//             timer.textContent = (' ');
-//             clearInterval(state.quizState.timeInterval)
-//             getInitialsPage()
-//         }
-//     }, 1000)
-// }
 
 
 startButton.addEventListener("click", startGame);
@@ -63,17 +35,6 @@ function startGame() {
     questionContainerElement.classList.remove("hide");
     // First thing our startGame should do is show the next set of questions
     setNextQuestion();
-    // countdown();
-
-    // state.quizState.shuffledQuestions = questions.sort(() => Math.random() - .5)
-    // state.quizState.currentQuestionIndex = 0
-    // questionContainerElement.classList.remove('hide')
-    // timer.classList.remove('hide')
-    // timeText.classList.remove("hide");
-    // setNextQuestion();
-    // countdown();
-
-
 }
 
 // Function that will set up the next question
