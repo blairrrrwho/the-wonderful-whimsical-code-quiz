@@ -31,6 +31,14 @@ body {
     font-weight: 600;
 }
 
+.btn.correct {
+    background-color: var(--correct);
+  }
+  
+.btn.incorrect {
+    background-color: var(--incorrect);
+  }
+
 #viewhighscore {
     justify-content: flex-start;
     color: rgba(114, 29, 118, 0.826);
@@ -84,14 +92,6 @@ body {
     align-items: center;
     ;
 }
-
-.btn.correct:active {
-    background-color: var(--correct);
-  }
-  
-.btn.incorrect:active {
-    background-color: var(--incorrect);
-  }
 
 .h3-style {
     color:  rgba(114, 29, 118, 0.826);
