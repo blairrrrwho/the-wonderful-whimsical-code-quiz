@@ -1,13 +1,18 @@
 const startButton = document.getElementById("start-button");
 const nextButton = document.getElementById("next-btn");
-const subButton = document.getElementById("submit-button")
-const clearButton = document.getElementById("clear-button")
+const subButton = document.getElementById("submit-button");
+const clearButton = document.getElementById("clear-button");
 const homePage = document.getElementById("homepage");
+const viewHighScores = document.getElementById("viewhighscore");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-btns");
 const correctAnsDisplay = document.getElementById("correct-ans");
 const incorrectAnsDisplay = document.getElementById("incorrect-ans");
+const elementHighScores = document.getElementById("highscore-container");
+var timer = document.getElementById("display-time");
+var timeText = document.getElementById("time");
+
 
 // Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
