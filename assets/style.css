@@ -38,7 +38,7 @@ body {
     text-decoration: none;
 }
 
-#highscore:hover {
+#viewhighscore:hover {
     color: var(--navy);
 }
 

@@ -1,5 +1,7 @@
 const startButton = document.getElementById("start-button");
 const nextButton = document.getElementById("next-btn");
+const subButton = document.getElementById("submit-button")
+const clearButton = document.getElementById("clear-button")
 const homePage = document.getElementById("homepage");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
