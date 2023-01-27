@@ -1,6 +1,5 @@
 const startButton = document.getElementById("start-button");
 const nextButton = document.getElementById("next-button");
-const backButton = document.getElementById("back-button")
 const subButton = document.getElementById("submit-button");
 const clearButton = document.getElementById("clear-button");
 const homePage = document.getElementById("homepage");
@@ -17,19 +16,44 @@ const scoreContainer = document.getElementById("scores-log");
 var timer = document.getElementById("display-time");
 var timeText = document.getElementById("time");
 
-// Sets the current state for the quiz; helps out the timer
-var currentState = {
-    element: {}
-}
-
 // Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
 let currentQuestionIndex;
 
+// Sets the current state for the quiz; helps out the timer
+var currentState = {
+    element: {
+        backButton: document.getElementById("back-button")
+    },
+    quizState: {
+        score: 0,
+        timeRemaining: 120,
+        timeInterval: null,
+        shuffledQuestions: null,
+        currentQuestionIndex: null
+    }
+}
+
+// Here goes the timer
+function countdown() {
+    currentState.quizState.timeRemaining = 120;
+    timer.textContent = currentState.quizState.timeRemaining;
+    currentState.quizState.timeInterval = setInterval(function() {
+        if (currentState.quizState.timeRemaining > 0) {
+            currentState.quizState.timeRemaining--;
+            timer.textContent = currentState.quizState.timeRemaining;
+        } else {
+            timer.textContent = (' ');
+            clearInterval(currentState.quizState.timeInterval)
+            getInitialsPage()
+        }
+    }, 1000)
+}
+// Need to add these things into the rest of our functions now
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
-    currentQuestionIndex++
+    currentState.quizState.currentQuestionIndex++
     setNextQuestion();
 })
 
@@ -100,9 +124,6 @@ function selectAnswer(event) {
     // Created variable checks to see if it's the correct answer or not
     const correct = selectedButton.dataset.correct;
     
-    // if (correct === undefined) {
-    //     state.quizState.timeRemaining -= 10
-    // }
 
     // Create a function to set the status class of our body
     // It's going to take whether or not it actually should be set to correct or incorrect
@@ -127,17 +148,10 @@ function selectAnswer(event) {
 function setStatusClass(element, correct) {
     // clearStatusClass(element)
     if (correct) {
-        element.classList.add("correct"); correctAnsDisplay.classList.remove("hide");
+        element.classList.add("correct");
     } else {
-        element.classList.add("incorrect"); incorrectAnsDisplay.classList.remove("hide")
+        element.classList.add("incorrect")
     }
-
-// doesn't work to display correct or incorrect on screen
-    // if (correct) {
-    //     correctAnsDisplay.classList.remove("hide");
-    // } else {
-    //     incorrectAnsDisplay.classList.remove("hide");
-    // }
 }
 
 // Defining clearStatusClass function; takes the element in the parameter 
