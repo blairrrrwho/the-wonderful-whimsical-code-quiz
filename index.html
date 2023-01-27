@@ -52,36 +52,37 @@
         </div>
         
         <!-- Part that will class Correct/Incorrect after response is chosen -->
+        <!-- Still can't get this to work but would like to leave for the future -->
         <div class="h-style h3-style">
             <h3 id="correct-ans" class="hide">Correct ヘ( ^o^)/\(^_^ )</h3>
             <h3 id="incorrect-ans" class="hide">Incorrect ¯\_(ツ)_/¯</h3>
         </div>
 
-        <!-- Part 3 - the high score input form -->
+        <!-- Part 3 - The finished section - displays score -->
         <section id="score-input" class="h-style hide">
-            <h2>All done!</h2> <br><br>
-            <p>Your final score is .....</p>
-            <form></form> 
+            <h2>Hey! You've completed the quiz!</h2> <br><br>
+            <p>Your final score is <span id="display-score"></span>></p>
+            <br>
+            <p>Enter Initials: 
                 <!-- text: enter initials; clickable textbox to receive input; submit btn -->
+                <input type="text" name="Initials" id="input-initials">
+            </p>
         </section>
 
-        <!-- Part 4: High score section -->
-        <section id="highscore-container" class="h-style hide">
-            <h3>Scores</h3>
-            <ul id="scoresContainer" style="text-align: left">
+        <!-- Part 4: The high score log section -->
+        <!-- Part 5 - the View High Scores nav link -->
+        <section id="score-log" class="h-style hide">
+            <h2>High Scores</h2><br><br>
+            <ul id="scores-log" style="text-align: left">
             </ul>
         </section>
 
-        <!-- Part 5 - the View High Scores nav link -->
-        <section id="score-log" class="h-style hide">
-            <h2>High Scores:</h2> <br><br>
-            <!-- results box for high score -->
-            <div id="form-btns" class="btn-flex">
-                <button id="submit-button" class="submit-button btn hide">Submit</button>
-                <button id="restart-button" class="restart-button btn">Restart Quiz</button> 
-                <button id="clear-button" class="clear-button btn">Clear High Scores</button>
-            </div>
-        </section>
+        <!-- Button controls area; other that start and next button -->
+        <div id="form-btns" class="btn-flex hide">
+            <button id="submit-button" class="submit-button btn hide">Submit</button>
+            <button id="restart-button" class="restart-button btn">Restart Quiz</button> 
+            <button id="clear-button" class="clear-button btn">Clear High Scores</button>
+        </div>
 
     </div>
 </body>

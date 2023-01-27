@@ -9,7 +9,7 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-btns");
 const correctAnsDisplay = document.getElementById("correct-ans");
 const incorrectAnsDisplay = document.getElementById("incorrect-ans");
-const elementHighScores = document.getElementById("highscore-container");
+const elementHighScores = document.getElementById("score-log");
 var timer = document.getElementById("display-time");
 var timeText = document.getElementById("time");
 
