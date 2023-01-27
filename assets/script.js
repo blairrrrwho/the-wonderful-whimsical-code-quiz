@@ -1,5 +1,6 @@
 const startButton = document.getElementById("start-button");
-const nextButton = document.getElementById("next-btn");
+const nextButton = document.getElementById("next-button");
+const backButton = document.getElementById("back-button")
 const subButton = document.getElementById("submit-button");
 const clearButton = document.getElementById("clear-button");
 const homePage = document.getElementById("homepage");
@@ -16,6 +17,10 @@ const scoreContainer = document.getElementById("scores-log");
 var timer = document.getElementById("display-time");
 var timeText = document.getElementById("time");
 
+// Sets the current state for the quiz; helps out the timer
+var currentState = {
+    element: {}
+}
 
 // Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
