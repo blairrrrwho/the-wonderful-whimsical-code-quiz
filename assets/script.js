@@ -41,7 +41,7 @@ const questions = [
             { text: "// This is a comment", correct: true },
             { text: "`This is a comment`", correct: false },
             { text: "<!-- This is a comment --!>", correct: false },
-            { text: "all of the above", correct: false }
+            { text: "All of the above", correct: false }
         ]
     },
     {
@@ -57,7 +57,7 @@ const questions = [
     },
     {
         // Question #6
-        question: "The condition in an if/else statement is enclosed with _______",
+        question: "The condition in an if/else statement is enclosed with _______.",
         answers: 
         [
             { text: "Parenthesis", correct: true },
@@ -79,7 +79,7 @@ const questions = [
     },
     {
         // Question #8
-        question: "String values must be enclosed within ______ when being assigned to variables",
+        question: "String values must be enclosed within ______ when being assigned to variables.",
         answers: 
         [
             { text: "Square brackets", correct: false },

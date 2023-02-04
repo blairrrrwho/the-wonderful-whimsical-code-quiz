@@ -2,18 +2,64 @@
 const questions = [
     {
         // Question #1
-        question: "Arrays in JavaScript can be used to store _______.",
+        question: 'Arrays in JavaScript can be used to store _______.',
         options: ['Numbers and strings', 'other arrays', 'Booleans', 'All of the above'],
         answer: 'All of the above'
     },
     {
         // Question #2
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
         options: ['Javascript', 'Terminal/Bash', 'for loops', 'console.log()'],
         answer: 'console.log()'
-    
+    },
+    {
+        // Question #3
+        question: "Which event occurs when the user clicks on an HTML element?",
+        options: ['onmouseclick', 'onchange', 'onclick', 'onmouseover'],
+        answer: 'onclick'
+    },
+    {
+        // Question #4
+        question: 'How can you add a comment in JavaScript?',
+        options: ['// This is a comment', '`This is a comment`', '<!-- This is a comment --!>', 'All of the above'],
+        answer: '// This is a comment'
+    },
+    {
+        // Question #5
+        question: 'Commonly used data types DO NOT include:',
+        options: ['Strings', 'Alerts', 'Booleans', 'Numbers'],
+        answer: 'Alerts'
+    },
+    {
+        // Question #6
+        question: 'The condition in an if/else statement is enclosed with _______.',
+        options: ['Parenthesis', 'Quotes', 'Square brackets', 'Curly braces'],
+        answer: 'Parenthesis'
+    },
+    {
+        // Question #7
+        question: 'Which operator is used to assign a value to a variable?',
+        options: ['==', '===', '+=', '='],
+        answer: '='
+    },
+    {
+        // Question #8
+        question: 'String values must be enclosed within ______ when being assigned to variables.',
+        options: ['Square brackets', 'Parenthesis', 'Quotes', 'Curly braces'],
+        answer: 'Quotes'
+    },
+    {
+        // Question #9
+        question: 'Inside of which HTML element do we put any JavaScript?',
+        options: ['<header> </header> tag', '<script> </script> tag', 'You don\'t; it goes elsewhere', 'Wherever you want'],
+        answer: '<script> </script> tag'
+    },
+    {
+        // Question #10
+        question: 'How many hours/days did it take blair to create this quiz applicatoin?',
+        options: ['3.5 days and 4 hours', 'Probably about a day or so', 'No more than a week"', 'Light years'],
+        answer: 'Light years'
     }
-  
 ]
 
 //first div
