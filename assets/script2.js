@@ -153,10 +153,14 @@ function userChoice(event) {
     if (!btnEl.matches(".option")) {
         return
     }
-    if (btnEl.value !== questions[currentQuestionIndex].answer) {
+    if (btnEl.value !== questions[currentQuestionIndex].answer)
+    {
+        alert("Incorrect! You lost 3 seconds");
         time -= 3;
         timer.textContent = time;
         console.log("user's a loser");
+    } else {
+        alert("Correct!")
     }
     currentQuestionIndex++;
     if (time <= 0 || currentQuestionIndex === questions.length) {

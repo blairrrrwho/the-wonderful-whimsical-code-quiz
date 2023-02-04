@@ -52,7 +52,12 @@ body {
 
 #timer {
     justify-content: flex-end;
-    color: --navy;
+    color: var(--navy);
+}
+
+#display-time {
+    justify-content: flex-end;
+    color: var(--navy);
 }
 
 .h-style {
