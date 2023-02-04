@@ -155,6 +155,7 @@ function userChoice(event) {
     }
     if (btnEl.value !== questions[currentQuestionIndex].answer)
     {
+        console.log(questions[currentQuestionIndex].answer);
         alert("Incorrect! You lost 3 seconds");
         time -= 3;
         timer.textContent = time;
@@ -164,6 +165,9 @@ function userChoice(event) {
     }
     currentQuestionIndex++;
     if (time <= 0 || currentQuestionIndex === questions.length) {
+        console.log(questions.length);
+        console.log("help lol");
+        clockTimer = time;
         endGame ();
     } else {
         setNextQuestion();
@@ -171,7 +175,7 @@ function userChoice(event) {
 }
 
 function endGame() {
-    console.log("this isn't complete"); 
+    localStorage.setItem('scoreContainer', time);
 }
 
 
