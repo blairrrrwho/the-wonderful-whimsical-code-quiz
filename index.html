@@ -37,28 +37,26 @@
         <div id="question-container" class="hide">
 
             <h2 id="question" class="h-style">Question 1/10</h2>
-
             <div id="answer-btns" class="btn-flex">
-                <button class="btn"></button>
+                <!-- need to figure out how to style answer buttons here -->
             </div>
         </div>
 
-        <div id="controls" class="btn-flex">
-        <button id="next-button" class="next-button btn hide">Next</button>
-        </div>
-
         <!-- Part that will class Correct/Incorrect after response is chosen -->
-        <!-- Still can't get this to work but would like to leave for the future -->
         <div class="h-style h3-style">
-        <h3 id="correct-ans" class="hide">Correct ヘ( ^o^)/\(^_^ )</h3>
-        <h3 id="incorrect-ans" class="hide">Incorrect ¯\_(ツ)_/¯</h3>
+            <div id="correct-ans" class="hide">
+                <h3>Correct ヘ( ^o^)/\(^_^ )</h3>
+            </div>
+            <div id="incorrect-ans" class="hide">
+                <h3>Incorrect ¯\_(ツ)_/¯</h3>
+            </div>
         </div>
 
         <!-- Part 3 - The finished section - displays score -->
         <section id="score-input" class="h-style hide">
-        <h2>Hey! You've completed the quiz!</h2> <br><br>
-        <p>Your final score is <span id="display-score"></span>></p>
-        <br>
+            <h2>Hey! You've completed the quiz!</h2> <br><br>
+            <p>Your final score is <span id="display-score"></span>></p>
+            <br>
         <p>Enter Initials:
             <!-- text: enter initials; clickable textbox to receive input; submit btn -->
             <input type="text" name="Initials" id="input-initials">
@@ -68,17 +66,17 @@
         <!-- Part 4: The high score log section -->
         <!-- Part 5 - the View High Scores nav link -->
         <section id="highscore-log" class="h-style hide">
-        <h2>High Scores</h2><br><br>
-        <ul id="scores-log" style="text-align: left">
-        </ul>
+            <h2>High Scores</h2><br><br>
+            <ul id="scores-log" style="text-align: left">
+            </ul>
         </section>
 
         <!-- Button controls area; other that start and next button -->
         <div id="form-btns" class="btn-flex hide">
-        <button id="back-button" class="back-button btn">Back</button>
-        <button id="submit-button" class="submit-button btn hide">Submit</button>
-        <button id="restart-button" class="restart-button btn">Restart Quiz</button>
-        <button id="clear-button" class="clear-button btn">Clear High Scores</button>
+            <button id="back-button" class="back-button btn">Back</button>
+            <button id="submit-button" class="submit-button btn hide">Submit</button>
+            <button id="restart-button" class="restart-button btn">Restart Quiz</button>
+            <button id="clear-button" class="clear-button btn">Clear High Scores</button>
         </div>
     </section>
 
