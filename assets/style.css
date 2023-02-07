@@ -19,7 +19,7 @@ body {
     background-color: var(--olive);
 }
 
-.nav {
+#navbar {
     display: flex;
     flex-wrap: wrap;
     flex-direction:row;

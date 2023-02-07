@@ -2,117 +2,66 @@
 const questions = [
     {
         // Question #1
-        question: "Arrays in JavaScript can be used to store _______.",
-        answers: 
-        [
-            { text: "Numbers and strings", correct: false },
-            { text: "Other arrays", correct: false },
-            { text: "Booleans", correct: false },
-            { text: "All of the above", correct: true }
-        ]
+        question: 'Arrays in JavaScript can be used to store _______.',
+        options: ['Numbers and strings', 'other arrays', 'Booleans', 'All of the above'],
+        answer: 'All of the above'
     },
     {
         // Question #2
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        answers: 
-        [
-            { text: "JavaScript", correct: false },
-            { text: "Terminal/Bash", correct: false },
-            { text: "for loops", correct: false },
-            { text: "console.log()", correct: true }
-        ]
+        question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
+        options: ['Javascript', 'Terminal/Bash', 'for loops', 'console.log()'],
+        answer: 'console.log()'
     },
     {
         // Question #3
         question: "Which event occurs when the user clicks on an HTML element?",
-        answers: 
-        [
-            { text: "onmouseclick", correct: false },
-            { text: "onchange", correct: false },
-            { text: "onclick", correct: true },
-            { text: "onmouseover", correct: false }
-        ]
+        options: ['onmouseclick', 'onchange', 'onclick', 'onmouseover'],
+        answer: 'onclick'
     },
     {
         // Question #4
-        question: "How can you add a comment in JavaScript?",
-        answers: 
-        [
-            { text: "// This is a comment", correct: true },
-            { text: "`This is a comment`", correct: false },
-            { text: "<!-- This is a comment --!>", correct: false },
-            { text: "All of the above", correct: false }
-        ]
+        question: 'How can you add a comment in JavaScript?',
+        options: ['// This is a comment', '`This is a comment`', '<!-- This is a comment --!>', 'All of the above'],
+        answer: '// This is a comment'
     },
     {
         // Question #5
-        question: "Commonly used data types DO NOT include:",
-        answers: 
-        [
-            { text: "Strings", correct: false },
-            { text: "Alerts", correct: true },
-            { text: "Booleans", correct: false },
-            { text: "Numbers", correct: false }
-        ]
+        question: 'Commonly used data types DO NOT include:',
+        options: ['Strings', 'Alerts', 'Booleans', 'Numbers'],
+        answer: 'Alerts'
     },
     {
         // Question #6
-        question: "The condition in an if/else statement is enclosed with _______.",
-        answers: 
-        [
-            { text: "Parenthesis", correct: true },
-            { text: "Quotes", correct: false },
-            { text: "Square brackets", correct: false },
-            { text: "Curly braces", correct: false }
-        ]
+        question: 'The condition in an if/else statement is enclosed with _______.',
+        options: ['Parenthesis', 'Quotes', 'Square brackets', 'Curly braces'],
+        answer: 'Parenthesis'
     },
     {
         // Question #7
-        question: "Which operator is used to assign a value to a variable?",
-        answers: 
-        [
-            { text: "==", correct: false },
-            { text: "===", correct: false },
-            { text: "+=", correct: false },
-            { text: "=", correct: true }
-        ]
+        question: 'Which operator is used to assign a value to a variable?',
+        options: ['==', '===', '+=', '='],
+        answer: '='
     },
     {
         // Question #8
-        question: "String values must be enclosed within ______ when being assigned to variables.",
-        answers: 
-        [
-            { text: "Square brackets", correct: false },
-            { text: "Parenthesis", correct: false },
-            { text: "Quotes", correct: true },
-            { text: "Curly braces", correct: false }
-        ]
-    },     
+        question: 'String values must be enclosed within ______ when being assigned to variables.',
+        options: ['Square brackets', 'Parenthesis', 'Quotes', 'Curly braces'],
+        answer: 'Quotes'
+    },
     {
         // Question #9
-        question: "Inside of which HTML element do we put any JavaScript?",
-        answers: 
-        [
-            { text: "<header> </header> tag", correct: false },
-            { text: "<script> </script> tag", correct: true },
-            { text: "You don't; it goes elsewhere", correct: false },
-            { text: "Wherever you want", correct: false }
-        ]
-    },     
+        question: 'Inside of which HTML element do we put any JavaScript?',
+        options: ['<header> </header> tag', '<script> </script> tag', 'You don\'t; it goes elsewhere', 'Wherever you want'],
+        answer: '<script> </script> tag'
+    },
     {
         // Question #10
-        question: "How many hours/days did it take blair to create this quiz applicatoin?",
-        answers: 
-        [
-            { text: "3.5 days and 4 hours", correct: false },
-            { text: "Probably about a day or so", correct: false },
-            { text: "No more than a week", correct: false },
-            { text: "Light years", correct: true }
-        ]
-    }      
+        question: 'How many hours/days did it take blair to create this quiz applicatoin?',
+        options: ['3.5 days and 4 hours', 'Probably about a day or so', 'No more than a week"', 'Light years'],
+        answer: 'Light years'
+    }
 ]
 
-//html global variables
 //first div
 const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("homepage");
@@ -124,7 +73,7 @@ var timeText = document.getElementById("time");
 //questions
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
-const answerButtonsElement = document.getElementById("answer-btns");
+const answerButtonsEl = document.getElementById("answer-btns");
 const nextButton = document.getElementById("next-button");
 //answers
 const correctAnsDisplay = document.getElementById("correct-ans");
@@ -139,67 +88,32 @@ const clearButton = document.getElementById("clear-button");
 const elementHighScores = document.getElementById("highscore-log");
 const scoreContainer = document.getElementById("scores-log");
 
+
 //variables to track array and time
-// Defaults both of these values to undefined, which is OK for what we need these variables for
 let shuffledQuestions;
 let currentQuestionIndex = 0;
 //value of time will be applied to each of the questions index, thereby questions has to be hoisted first, at top
 var time = questions.length * 15;
+var clockTimer;
 
-// Sets the current state for the quiz; helps out the timer
-var currentState = {
-    element: {
-        backButton: document.getElementById("back-button")
-    },
-    quizState: {
-        score: 0,
-        timeRemaining: 120,
-        timeInterval: null,
-        shuffledQuestions: null,
-        currentQuestionIndex: null
-    }
-}
-
-// Here goes the timer
-function countdown() {
-    currentState.quizState.timeRemaining = 120;
-    timer.textContent = currentState.quizState.timeRemaining;
-    currentState.quizState.timeInterval = setInterval(function() {
-        if (currentState.quizState.timeRemaining > 0) {
-            currentState.quizState.timeRemaining--;
-            timer.textContent = currentState.quizState.timeRemaining;
-        } else {
-            timer.textContent = (' ');
-            clearInterval(currentState.quizState.timeInterval)
-            getInitialsPage()
-        }
-    }, 1000)
-}
 // Need to add these things into the rest of our functions now
 //starts the quiz -- event listener to button, app goes to function
 startButton.addEventListener("click", startGame);
 
-
-nextButton.addEventListener("click", () => {
-    currentState.quizState.currentQuestionIndex++
-    setNextQuestion();
-})
 //first function?? hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
 //create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
-// What needs to happen when you click the start button -- Starts the game function
+
 function startGame() {
     // Test to make sure our startGame function is being called w/startBtn when clicked
     console.log("started");
     // Need to hide the startBtn + title page; need to display the first set of questions
     startButton.classList.add("hide");
     homePage.classList.add("hide");
-    // Shuffles all of the questions so that Question #1 won't always show up as the fist one, etc.
-    // Math.random() gives us a number between 0 and 1
-    // We subtract that by 0.5 to get a number either <0 or >0 50% of the time, which gives us a completely random array
-    // shuffledQuestions = questions.sort(() => Math.random()- 0.5);
-    // Set to 0 since we're starting on the first question of our shuffled questions array
-    // currentQuestionIndex = 0;
+
     questionContainerElement.classList.remove("hide");
+
+    //start clock -- add to a timer to execute by each second countdown
+    clockTimer = setInterval(clock, 1000)
     // First thing our startGame should do is show the next set of questions
     setNextQuestion();
 
@@ -213,100 +127,60 @@ function clock(){
     }
 }
 
-// Function that will set up the next question
-// Next button or set up so that choice clicked from previous question acts as next button
+//this function is to pull and display the question and display to the h2 in the question h2 div, and then loop thru the options array and dynamically display to the answer-btns on html
 function setNextQuestion() {
-    // Resets everything back to its default state every time we set a new question
-    resetState()
-    // Want to get and show the next question; create a function and put shuffledQuestions inside parameter
-    showQuestion(shuffledQuestions[currentQuestionIndex])
-    // showQuestion(state.quizState.shuffledQuestions[state.quizState.currentQuestionIndex])
+    var currentQuest = questions[currentQuestionIndex]
 
-}
+    questionElement.textContent = currentQuest.question;
 
-function showQuestion (question) {
-    questionElement.innerText = question.question;
-    question.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-        button.classList.add("btn");
-        if (answer.correct) {
-            // Adds a data attribute to the newly created button
-            // We don't do so for the false answers bc we don't want them in our data attribute
-            // Because they are just going to be strings, not actual booleans
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-        // Adds this to the answerButtonsElement
-        answerButtonsElement.appendChild(button);
-    })
-}
-
-function resetState() {
-    // Use next button to target this; clears out the default values in HTML and doesn't show them
-    clearStatusClass(document.body) 
-    nextButton.classList.add("hide");
-    while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild
-        (answerButtonsElement.firstChild)
+    answerButtonsEl.innerHTML = '';
+    //setup a loop such as .each loop thru the options array -- an array solves for one index at a time -- solve to produce a button element and add both a class and value attribute to the button element
+    for (let i = 0; i < currentQuest.options.length; i++) {
+        const option = currentQuest.options[i];
+        console.log(option);
+        var btn = document.createElement("button");
+        btn.setAttribute("class", "option");
+        btn.setAttribute("value", option);
+        btn.textContent = i + "1" + ". " + option;
+        answerButtonsEl.appendChild(btn);
     }
-}
-
-
-// Does something when the user selects an answer
-// Takes in our even from above as a parameter 
-function selectAnswer(event) {
-    // This is just whatever button the user clicks on
-    const selectedButton = event.target;
-    // Created variable checks to see if it's the correct answer or not
-    const correct = selectedButton.dataset.correct;
     
-
-    // Create a function to set the status class of our body
-    // It's going to take whether or not it actually should be set to correct or incorrect
-    setStatusClass(document.body, correct);
-    // We need to loop through all of the other buttons and select and set the class for them
-    // Convert this to an array bc this is returning a live collection; need to use for the for each loop
-    Array.from(answerButtonsElement.children).forEach(button => {
-        // Set the status for the other buttons
-        // Want to set the status on whether or not that answer was a correct answer
-        setStatusClass(button, button.dataset.correct)
-    })
-    if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove("hide");
-    } else { 
-        getInitialsPage()
-        // ^^^^^^ need to create and define
-    }
 }
 
-// Defining setStatusClass function
-// In the parameters we are going to take an element, and whether or not it is correct
-function setStatusClass(element, correct) {
-    // clearStatusClass(element)
-    if (correct) {
-        element.classList.add("correct");
+answerButtonsEl.onclick = userChoice;
+function userChoice(event) {
+    var btnEl = event.target;
+    if (!btnEl.matches(".option")) {
+        return
+    }
+    if (btnEl.value !== questions[currentQuestionIndex].answer)
+    {
+        console.log(questions[currentQuestionIndex].answer);
+        alert("Incorrect! You lost 3 seconds");
+        time -= 3;
+        timer.textContent = time;
+        console.log("user's a loser");
     } else {
-        element.classList.add("incorrect")
+        alert("Correct!")
+    }
+    currentQuestionIndex++;
+    if (time <= 0 || currentQuestionIndex === questions.length) {
+        console.log(questions.length);
+        console.log("help lol");
+        clockTimer = time;
+        endGame ();
+    } else {
+        setNextQuestion();
     }
 }
 
-// Defining clearStatusClass function; takes the element in the parameter 
-// Want to remove these classes instead of add them
-function clearStatusClass (element) {
-    element.classList.remove("correct");
-    element.classList.remove("incorrect");
-    correctAnsDisplay.classList.add("hide");
-    incorrectAnsDisplay.classList.add("hide");
+function endGame() {
+    localStorage.setItem('scoreContainer', time);
 }
 
 
 
-// List of questions initialized a giant array
-// Inside of the array, we have 10 objects - each object poses as one of our questions
-// Inside of each question we have a few elements: a question property and an answers property
-// The question property contains a string
-// The answers property contains an array of four objects 
-// Within each of those objects is text property containing a string, and a correct property containing a boolean
-// The boolean keys out our correct answer value 
-// Inserted a comment above each question to number strictly for my own reference and editing purposes
+//create an event listener and send to the next function - target the answer-btns div
+//create a function, and pass thru event, then define event.target.  Does it match the class you assigned to the button, or solve for the doesnt match.  Also, solve for the wrong answer -- as you have 3 wrong answers and one right one.  You solve for the incorrect and deduct pts off the time.  
+//utilize the index variable to ++
+//solve to determine are you out of time or out of questions - if either are true, end of game, if not, then go back to the nextQuestion function to repeat process.
