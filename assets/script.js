@@ -69,12 +69,10 @@ const homePage = document.getElementById("homepage");
 const viewHighScores = document.getElementById("viewhighscore");
 //timer
 var timer = document.getElementById("display-time");
-var timeText = document.getElementById("time");
 //questions
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsEl = document.getElementById("answer-btns");
-const nextButton = document.getElementById("next-button");
 //answers
 const correctAnsDisplay = document.getElementById("correct-ans");
 const incorrectAnsDisplay = document.getElementById("incorrect-ans");
@@ -84,6 +82,7 @@ const yourScore = document.getElementById("display-score");
 //other
 const subButton = document.getElementById("submit-button");
 const clearButton = document.getElementById("clear-button");
+const restartButton = document.getElementById("restart-button");
 //highscores - end
 const elementHighScores = document.getElementById("highscore-log");
 const scoreContainer = document.getElementById("scores-log");
