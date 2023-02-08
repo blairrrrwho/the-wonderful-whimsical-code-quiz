@@ -174,7 +174,6 @@ function userChoice(event) {
     if (time <= 0 || currentQuestionIndex === questions.length) {
         console.log(questions.length);
         console.log("help lol");
-        clockTimer = time;
         endGame ();
     } else {
         setNextQuestion();
