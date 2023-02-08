@@ -80,6 +80,7 @@ const incorrectAnsDisplay = document.getElementById("incorrect-ans");
 const quizComplete = document.getElementById("score-input");
 const yourScore = document.getElementById("display-score");
 //other
+
 const subButton = document.getElementById("submit-button");
 const clearButton = document.getElementById("clear-button");
 const restartButton = document.getElementById("restart-button");
@@ -87,6 +88,8 @@ const restartButton = document.getElementById("restart-button");
 const elementHighScores = document.getElementById("highscore-log");
 const scoreContainer = document.getElementById("scores-log");
 
+// initials
+const initials = document.getElementById("input-initials");
 
 //variables to track array and time
 let shuffledQuestions;
@@ -183,9 +186,38 @@ function userChoice(event) {
 function endGame() {
     clearInterval(clockTimer);
     quizComplete.removeAttribute('class');
+    subButton.removeAttribute('class');
     yourScore.textContent=time; 
     questionContainerElement.setAttribute('class', 'hide');
     localStorage.setItem('scoreContainer', time);
+}
+
+subButton.onclick=scoreLog;
+
+function scoreLog() {
+    let userInitials = initials.value.trim();
+    if (userInitials === "") {
+        return;
+    }
+    let highscores = JSON.parse(localStorage.getItem("high-scores")) || [];
+    let playerScore = {
+        score:time, 
+        initials:userInitials
+    };
+    highscores.push(playerScore)
+    localStorage.setItem("high-scores", JSON.stringify(highscores));
+    quizComplete.setAttribute('class', 'hide');
+    elementHighScores.removeAttribute('class');
+    highscores.sort(function(x,y){
+        return y.score - x.score;
+    })
+    for (let i = 0; i < highscores.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = highscores[i].initials + " - " + highscores[i].score;
+        scoreContainer.appendChild(li);
+
+    }
+
 }
 
 
