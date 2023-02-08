@@ -1,30 +1,34 @@
-# the-wonderful-whimsical-code-quiz
-This is a timed multiple choice quiz that features dynamically updated HTML and CSS powered by JavaScript
+# The Wonderful Whimsical Code Quiz
+
+## Description
+
+This particular Jvascript Quiz has been created to showcase the use of DOM manipulation with Javascript. There will be a timed and graded quiz with the a local high score log. For each chosen correct answer, you will move on. For each chosen incorrect answer, you will be deducted 3 seconds from your time. Your score is the number of seconds in time you have left after the quiz is over! If you fail to complete the quiz, you lose. 
+
+At the end when you log your initials, your high score will be stored so you can replay the game over again and try to beat it!
+
+## Installation
+
+N/A
+
+## Technologies 
+
+N/A
+
+## Usage
+
+This interactive JavaScript quiz is technically [ ;) ] for anybody.
 
 
-Web APIs Challenge: Code Quiz
-As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
-
-To help you become familiar with these tests and give you a chance to apply the skills from this module, this week’s Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. This week’s coursework will teach you all the skills you need to succeed in this assignment.
-
-NOTE
-Coding assessments are an important part of the interview process for developers. In fact, employers often use them to filter out job candidates with a cut-off score. To help you prepare, we’ve developed a set of technical interview questions that you can answer throughout the course. The difficulty level of these questions will increase as you become a more proficient developer. If you take advantage of these opportunities to practice, you should be well-prepared to shine during the technical interview process toward the end of this course!
 
 
-User Story
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+## Deployment
 
-Acceptance Criteria
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+
+
+## Credits
+
+The JavaScript Quiz was created with the assistance of cohorts, Blair, Lacey and Christina, a tutoring session with Ms. Sandra and the AskBCS slack channel. They were pivotal i the debugging of code and implementing my logic. 
+
+## License
+
+Please refer to the LICENSE in the repo.

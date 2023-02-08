@@ -31,14 +31,6 @@ body {
     font-weight: 600;
 }
 
-.btn.correct {
-    background-color: var(--correct);
-  }
-  
-.btn.incorrect {
-    background-color: var(--incorrect);
-  }
-
 #viewhighscore {
     justify-content: flex-start;
     color: rgba(114, 29, 118, 0.826);
