@@ -155,12 +155,20 @@ function userChoice(event) {
     if (btnEl.value !== questions[currentQuestionIndex].answer)
     {
         console.log(questions[currentQuestionIndex].answer);
-        alert("Incorrect! You lost 3 seconds");
+        incorrectAnsDisplay.removeAttribute('class');
+        setTimeout(function(){
+            incorrectAnsDisplay.setAttribute('class', 'hide')}, 1000
+        );
+        // alert("Incorrect! You lost 3 seconds");
         time -= 3;
         timer.textContent = time;
         console.log("user's a loser");
     } else {
-        alert("Correct!")
+        correctAnsDisplay.removeAttribute('class');
+        setTimeout(function(){
+            correctAnsDisplay.setAttribute('class', 'hide')}, 1000
+        );
+        // alert("Correct!")
     }
     currentQuestionIndex++;
     if (time <= 0 || currentQuestionIndex === questions.length) {
