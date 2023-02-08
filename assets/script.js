@@ -182,6 +182,10 @@ function userChoice(event) {
 }
 
 function endGame() {
+    clearInterval(clockTimer);
+    quizComplete.removeAttribute('class');
+    yourScore.textContent=time; 
+    questionContainerElement.setAttribute('class', 'hide');
     localStorage.setItem('scoreContainer', time);
 }
 
