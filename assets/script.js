@@ -207,15 +207,16 @@ function scoreLog() {
     highscores.push(playerScore)
     localStorage.setItem("high-scores", JSON.stringify(highscores));
     quizComplete.setAttribute('class', 'hide');
+    subButton.setAttribute('class', 'hide');
     elementHighScores.removeAttribute('class');
     highscores.sort(function(x,y){
         return y.score - x.score;
     })
+    scoreContainer.innerHTML = "";
     for (let i = 0; i < highscores.length; i++) {
         let li = document.createElement("li");
         li.textContent = highscores[i].initials + " - " + highscores[i].score;
         scoreContainer.appendChild(li);
-
     }
 
 }
