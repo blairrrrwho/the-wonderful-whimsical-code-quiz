@@ -18,6 +18,8 @@ N/A
 
 This interactive JavaScript quiz is technically [ ;) ] for anybody.
 
+There will be future developments to this application, we just aren't quite there yet. But rest assure, it is doing what it needs to at the moment :).
+
 
 
 
@@ -27,8 +29,15 @@ This interactive JavaScript quiz is technically [ ;) ] for anybody.
 
 ## Credits
 
-The JavaScript Quiz was created with the assistance of cohorts, Blair, Lacey and Christina, a tutoring session with Ms. Sandra and the AskBCS slack channel. They were pivotal i the debugging of code and implementing my logic. 
+This lovely, lovely JavaScript Quiz was created with the assistance of fellow classmates: BRANDON JOHNSON, CHRISTINA HALL, and LACEY ANGARITA. And, as the all-caps intends, they are very important to me and I am happy to have had them here for this app's development. I couldn't have done it without their support. 
+
+I also want to accredit a tutoring session with Ms. Sandy and also with Mr. Kumar.
+Let's also shout out the Net Ninja from YouTube, Ask BCS, and all of the other lovely resources we were given through this process. 
+
+Thank you all! 
+
+It's been a long time coming, and I'm glad to have had these resources to make it through. 
 
 ## License
 
-Please refer to the LICENSE in the repo.
+None
