@@ -11,3 +11,6 @@
 * it's fine because a wrong answer is still bad
 * but also just a few correct answers could be bad.....
 * we will fix this in the future when javascript and web api's are second nature
+
+* we ened to add padding and style to the high score page
+* the weird numbers on the buttons
