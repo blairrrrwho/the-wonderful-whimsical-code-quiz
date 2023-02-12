@@ -14,3 +14,6 @@
 
 * we ened to add padding and style to the high score page
 * the weird numbers on the buttons
+
+## Grading Notes
+Hi Blair, Congratulations on an outstanding homework challenge! You were able to demonstrate your ability to build a Quiz application using HTML, CSS and JavaScript. Nice work! However, somethings I would recommend are: give you users an actual score based upon the answers they get correct -- not the time left on the timer. Additionally, style the buttons, and clean up your ReadMe. If a section is N/A, go ahead and take it out of the ReadMe. Over all great job and keep up the good work! Happy coding. Caroline central grader
