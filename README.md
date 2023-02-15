@@ -20,14 +20,14 @@ This interactive JavaScript quiz is technically [ ;) ] for anybody.
 
 There will be future developments to this application, we just aren't quite there yet. But rest assure, it is doing what it needs to at the moment :).
 
-![Screenshot of Webpage](./assets/blairrrrwho.github.io_the-wonderful-whimsical-code-quiz_.png)
 
+## Deployment
 
-
-## Deployment Link
-
-<a href = "https://blairrrrwho.github.io/the-wonderful-whimsical-code-quiz/">
+Live URL: <a href = "https://blairrrrwho.github.io/the-wonderful-whimsical-code-quiz/">
 The Wonderful Whimsical Code Quiz</a>
+
+
+![Screenshot of Webpage](./assets/blairrrrwho.github.io_the-wonderful-whimsical-code-quiz_.png)
 
 
 
