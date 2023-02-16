@@ -1,55 +1,55 @@
 // array of questions
 const questions = [
     {
-        // Question #1
+        //uestion #1
         question: 'Arrays in JavaScript can be used to store _______.',
         options: ['Numbers and strings', 'other arrays', 'Booleans', 'All of the above'],
         answer: 'All of the above'
     },
     {
-        // Question #2
+        //Question #2
         question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
         options: ['Javascript', 'Terminal/Bash', 'for loops', 'console.log()'],
         answer: 'console.log()'
     },
     {
-        // Question #3
+        //Question #3
         question: "Which event occurs when the user clicks on an HTML element?",
         options: ['onmouseclick', 'onchange', 'onclick', 'onmouseover'],
         answer: 'onclick'
     },
     {
-        // Question #4
+        //Question #4
         question: 'How can you add a comment in JavaScript?',
         options: ['// This is a comment', '`This is a comment`', '<!-- This is a comment --!>', 'All of the above'],
         answer: '// This is a comment'
     },
     {
-        // Question #5
+        //Question #5
         question: 'Commonly used data types DO NOT include:',
         options: ['Strings', 'Alerts', 'Booleans', 'Numbers'],
         answer: 'Alerts'
     },
     {
-        // Question #6
+        //Question #6
         question: 'The condition in an if/else statement is enclosed with _______.',
         options: ['Parenthesis', 'Quotes', 'Square brackets', 'Curly braces'],
         answer: 'Parenthesis'
     },
     {
-        // Question #7
+        //Question #7
         question: 'Which operator is used to assign a value to a variable?',
         options: ['==', '===', '+=', '='],
         answer: '='
     },
     {
-        // Question #8
+        //Question #8
         question: 'String values must be enclosed within ______ when being assigned to variables.',
         options: ['Square brackets', 'Parenthesis', 'Quotes', 'Curly braces'],
         answer: 'Quotes'
     },
     {
-        // Question #9
+        //Question #9
         question: 'Inside of which HTML element do we put any JavaScript?',
         options: ['<header> </header> tag', '<script> </script> tag', 'You don\'t; it goes elsewhere', 'Wherever you want'],
         answer: '<script> </script> tag'
@@ -62,14 +62,12 @@ const questions = [
     }
 ]
 
-// first div -- Part 1
+//first div -- the hompage
 const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("homepage");
 //highscores page -- top left in navbar 
 const navEl = document.getElementById("nav-score");
-//timer
-var timer = document.getElementById("display-time");
-//questions
+//questions container
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsEl = document.getElementById("answer-btns");
@@ -79,47 +77,30 @@ const incorrectAnsDisplay = document.getElementById("incorrect-ans");
 //scores
 const quizComplete = document.getElementById("score-input");
 const yourScore = document.getElementById("display-score");
-//other
-
-const subButton = document.getElementById("submit-button");
-const clearButton = document.getElementById("clear-button");
-const restartButton = document.getElementById("restart-button");
 //highscores page - end
 const elementHighScores = document.getElementById("highscore-log");
 const scoreContainer = document.getElementById("scores-log");
-
 // initials
 const initials = document.getElementById("input-initials");
+//will be located on the initials form page
+const subButton = document.getElementById("submit-button");
+//will be located on the high scores page
+const restartBtn = document.getElementById('restart-button');
+//will be located on high scores page
+const clearHighScoreBtn = document.getElementById('clear-button');
+let highScore;
 
 //variables to track array and time
-let shuffledQuestions;
 let currentQuestionIndex = 0;
-//value of time will be applied to each of the questions index, thereby questions has to be hoisted first, at top
-var time = questions.length * 15;
+let shuffledQuestions = null;
+
+//value of time will be applied to each of the questions index, 
+//thereby questions have to be hoisted first, at top
+//timer -- top right in navbar
+var timer = document.getElementById("display-time");
 var clockTimer;
+var time = questions.length * 15;
 
-//starts the quiz -- event listener for start quiz button to start function
-startButton.addEventListener("click", startGame);
-
-//first function?? 
-// hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
-// create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
-
-function startGame() {
-    // Test to make sure our startGame function is being called w/startBtn when clicked
-    console.log("started");
-    // Need to hide the startBtn + title page; need to display the first set of questions
-    startButton.classList.add("hide");
-    homePage.classList.add("hide");
-
-    questionContainerElement.classList.remove("hide");
-
-    //start clock -- add to a timer to execute by each second countdown
-    clockTimer = setInterval(clock, 1000)
-    // First thing our startGame should do is show the next set of questions
-    setNextQuestion();
-
-}
 function clock(){
     time--;
     timer.textContent = time;
@@ -129,13 +110,54 @@ function clock(){
     }
 }
 
+
+//event listener for view high score navbar link
+navEl.addEventListener('click', scoreLog);
+//event listener for start quiz button -- starts the quiz by firing the startQuiz function
+startButton.addEventListener("click", startQuiz);
+//event listener for submit button on initials page
+subButton.addEventListener('click', scoreLog);
+var olEl = document.getElementById("scores-log")
+//event listener for restart quiz button click
+restartBtn.addEventListener('click', reloadQuiz);
+//event listener to clear high score storage
+clearHighScoreBtn.addEventListener('click', clearStorage);
+
+//function that fires on restart button click; reloads quiz to take again
+function reloadQuiz() {
+  location.reload();
+}
+
+
+function clearStorage() {
+  localStorage.clear();
+  reloadQuiz();
+}
+
+
+//hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
+//create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
+function startQuiz() {
+    highScore = 0;
+    //test to make sure our startQuiz function is being called w/startBtn when clicked
+    console.log("started");
+    //meed to hide the startBtn + title page; need to display the first set of questions
+    startButton.classList.add("hide");
+    homePage.classList.add("hide");
+
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    questionContainerElement.classList.remove("hide");
+    //start clock -- add to a timer to execute by each second countdown
+    clockTimer = setInterval(clock, 1000)
+    //the first thing our startQuiz should do is show the next set of questions
+    setNextQuestion();
+}
+
 //this function is to pull and display the question and display to the h2 in the question h2 div,
 // and then loop thru the options array and dynamically display to the answer-btns on html
 function setNextQuestion() {
-    var currentQuest = questions[currentQuestionIndex]
-
+    var currentQuest = shuffledQuestions[currentQuestionIndex]
     questionElement.textContent = currentQuest.question;
-
     answerButtonsEl.innerHTML = '';
     //setup a loop such as .each loop thru the options array -- an array solves for one index at a time
     //  -- solve to produce a button element and add both a class and value attribute to the button element
@@ -145,10 +167,9 @@ function setNextQuestion() {
         var btn = document.createElement("button");
         btn.setAttribute("class", "option btn");
         btn.setAttribute("value", option);
-        btn.textContent = i + "1" + ". " + option;
+        btn.textContent = "" + option;
         answerButtonsEl.appendChild(btn);
     }
-    
 }
 
 answerButtonsEl.onclick = userChoice;
@@ -157,79 +178,120 @@ function userChoice(event) {
     if (!btnEl.matches(".option")) {
         return
     }
-    if (btnEl.value !== questions[currentQuestionIndex].answer)
-    {
+    if (btnEl.value !== questions[currentQuestionIndex].answer) {
         console.log(questions[currentQuestionIndex].answer);
         incorrectAnsDisplay.removeAttribute('class');
         setTimeout(function(){
-            incorrectAnsDisplay.setAttribute('class', 'hide')}, 1000
-        );
+            incorrectAnsDisplay.setAttribute('class', 'hide')
+        }, 800);
         // alert("Incorrect! You lost 3 seconds");
-        time -= 3;
+        time -= 7;
         timer.textContent = time;
         console.log("user's a loser");
     } else {
         correctAnsDisplay.removeAttribute('class');
         setTimeout(function(){
-            correctAnsDisplay.setAttribute('class', 'hide')}, 1000
-        );
+            correctAnsDisplay.setAttribute('class', 'hide')
+        }, 800);
+        highScore += 10;
         // alert("Correct!")
     }
     currentQuestionIndex++;
-    if (time <= 0 || currentQuestionIndex === questions.length) {
+    if (time === 0 || currentQuestionIndex === questions.length) {
         console.log(questions.length);
         console.log("help lol");
-        endGame ();
+        console.log(highScore);
+        endQuiz ();
     } else {
         setNextQuestion();
     }
 }
 
-function endGame() {
+function endQuiz() {
     clearInterval(clockTimer);
+    yourScore.textContent = highScore 
     quizComplete.removeAttribute('class', 'hide');
     quizComplete.setAttribute('class', 'h-style')
     subButton.removeAttribute('class', 'hide');
     subButton.setAttribute('class', 'btn');
-    yourScore.textContent = time; 
     questionContainerElement.setAttribute('class', 'hide');
     localStorage.setItem('scoreContainer', time);
 }
 
 subButton.onclick = scoreLog;
 
-function scoreLog() {
+function scoreLog(event) {
+    event.preventDefault();
+    //need to take in and identify the user input data
     let userInitials = initials.value.trim();
     if (userInitials === "") {
-        return;
-    }
-    let highscores = JSON.parse(localStorage.getItem("high-scores")) || [];
-    let playerScore = {
-        score:time, 
-        initials:userInitials
+        // return;
+        var  highScoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
+        var playerScore = {
+            score: highScore, 
+            initials:userInitials
+        }
+        //add the score to the array
+        highScoreArray.push(playerScore);
+        //when sending to local systme must stringify and then set it
+        localStorage.setItem("highScores", JSON.stringify(highScoreArray));
     };
-    highscores.push(playerScore)
-    localStorage.setItem("high-scores", JSON.stringify(highscores));
+    // another way to write these? 
+        // homePage.classList.add('hide');
+        // quizComplete.classList.add('hide');
+        // elementHighScores.classList.remove('hide');
+        // questionContainerElement.classList.add('hide');
+    homePage.classList.add('hide');
     quizComplete.setAttribute('class', 'hide');
     subButton.setAttribute('class', 'hide');
     elementHighScores.removeAttribute('class', 'hide');
     elementHighScores.setAttribute('class', 'h-style');
-    highscores.sort(function(x,y){
+
+    highScoreArray.sort(function(x,y){
         return y.score - x.score;
     })
     scoreContainer.innerHTML = "";
-    for (let i = 0; i < highscores.length; i++) {
-        let li = document.createElement("li");
-        li.textContent = highscores[i].initials + " - " + highscores[i].score;
-        scoreContainer.appendChild(li);
+    for (let i = 0; i < highScoreArray.length; i++) {
+        let liTag = document.createElement("li");
+        liTag.textContent = highScoreArray[i].initials + " - " + highScoreArray[i].score;
+        scoreContainer.appendChild(liTag);
         scoreContainer.setAttribute('style', 'color: rgba(27, 27, 93, 0.95)')
     }
-
 }
+
+// let timeEl = document.getElementById('clock');
+// let secondsLeft = 90;
+// function setTime() {
+//   // Sets interval in variable
+//   timerInterval = setInterval(function () {
+//     secondsLeft--;
+//     timeEl.textContent = secondsLeft;
+
+//     if (secondsLeft <= 0) {
+//       // Stops execution of action at set interval
+
+//       testOver();
+//     }
+//   }, 1000);
+// }
+
+// function testOver() {
+//   clearInterval(timerInterval);
+//   scoreEl.textContent = highScore;
+//   finalScoreEl.classList.remove('hide');
+//   quizEl.classList.add('hide');
+// }
+
+// function returnToQuiz() {
+//   preQuizElement.classList.remove('hide');
+//   highScoreEl.classList.add('hide');
+// }
+
+
 
 
 
 //create an event listener and send to the next function - target the answer-btns div
 //create a function, and pass thru event, then define event.target.  Does it match the class you assigned to the button, or solve for the doesnt match.  Also, solve for the wrong answer -- as you have 3 wrong answers and one right one.  You solve for the incorrect and deduct pts off the time.  
 //utilize the index variable to ++
-//solve to determine are you out of time or out of questions - if either are true, end of game, if not, then go back to the nextQuestion function to repeat process.
+//solve to determine are you out of time or out of questions - if either are true, end of quiz, if not, then go back to the nextQuestion function to repeat process.
