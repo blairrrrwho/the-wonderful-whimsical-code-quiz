@@ -56,7 +56,7 @@ body {
 }
 
 #homepage h1 {
-    font-size: 2.2em;
+    font-size: 2.0em;
 }
 
 #homepage p {
@@ -65,8 +65,8 @@ body {
 
 .h-style {
     text-align: center;
-    margin-top: 4%;
-    font-size:1.8em;
+    margin-top: 3%;
+    font-size:1.7em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -211,12 +211,12 @@ ol {
   
 
 /* remove hover state from mobile */
-/* @media (hover: hover) { */
+ @media (hover: hover) { */
     /* when hover is supported */
-    /* .button:hover {
+    .button:hover {
         background-color: var(--hover-text-color);
         cursor: pointer;
     }
 }
- */
+ 
 

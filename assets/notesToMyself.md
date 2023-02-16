@@ -7,6 +7,9 @@
 * add restart or reset button to restart or reset the quiz
 * link the high scores hyperlink to the actual high scores log
 * make.sure. that if the timer goes to 0, they absolutely lose
+* restart button; reload button
+* clear local storage button
+
 
 
 ## Grading Notes
