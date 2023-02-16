@@ -125,12 +125,12 @@ restartBtn.addEventListener('click', reloadQuiz);
 //event listener to clear high score storage
 clearHighScoreBtn.addEventListener('click', clearStorage);
 //event listener for submit button on initials page
-subButton.addEventListener('click', scoreLog);
+subButton.addEventListener('click', elementHighScores);
 //event listener for start quiz button -- starts the quiz by firing the startQuiz function
 startButton.addEventListener("click", startQuiz);
 
 //event listener for view high score navbar link
-navEl.addEventListener('click', h);
+navEl.addEventListener('click', elementHighScores);
 
 
 //function that fires on restart button click; reloads quiz to take again
@@ -158,6 +158,7 @@ function startQuiz() {
     questionContainerElement.classList.remove("hide");
     //start clock -- add to a timer to execute by each second countdown
     //the first thing our startQuiz should do is show the next set of questions
+    setTime();
     setNextQuestion();
 }
 
@@ -193,8 +194,8 @@ function userChoice(event) {
             incorrectAnsDisplay.setAttribute('class', 'hide')
         }, 800);
         // alert("Incorrect! You lost 3 seconds");
-        time -= 7;
-        timer.textContent = time;
+        timeLeft -= 7;
+        timer.textContent = timeLeft;
         console.log("user's a loser");
     } else {
         correctAnsDisplay.removeAttribute('class');
@@ -205,7 +206,7 @@ function userChoice(event) {
         // alert("Correct!")
     }
     currentQuestionIndex++;
-    if (time <= 0 || currentQuestionIndex === questions.length) {
+    if (timeLeft <= 0 || currentQuestionIndex === questions.length) {
         console.log(questions.length);
         console.log("help lol");
         console.log(highScore);
@@ -216,7 +217,7 @@ function userChoice(event) {
 }
 
 function endQuiz() {
-    clearInterval(clockTimer);
+    clearInterval(timerInterval);
     yourScore.textContent = highScore;
     localStorage.setItem('scoreContainer', highScore); 
     quizComplete.removeAttribute('class', 'hide');
