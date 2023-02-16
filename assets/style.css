@@ -25,10 +25,12 @@ body {
     flex-direction:row;
     justify-content: space-between;
     align-items: center;
-    margin: 3%; 
-    margin-top: 2%;
-    padding: 2%;
-    font-size: 1.5em;
+    margin: 2%; 
+    margin-bottom: 1%;
+    padding: 1.5%;
+    padding-left: 4%;
+    padding-right: 4%;
+    font-size: 1.4em;
     font-weight: 600;
 }
 
@@ -54,18 +56,18 @@ body {
 }
 
 #homepage h1 {
-    font-size: 2.0em;
+    font-size: 1.9em;
 }
 
 #homepage p {
-    margin: 1%;
+    margin: 1.5%;
 }
 
 .h-style {
     text-align: center;
     margin: 2%;
     /* padding: 2%; */
-    font-size: 1.80em;
+    font-size:1.75em;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -80,13 +82,13 @@ body {
 .btn {
     background-color: var(--navy);
     color: rgba(255, 255, 255, 0.918);
-    font-size: 25px;
+    font-size: 23px;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;;
     cursor: pointer;
-    width: 25%;
-    padding: 2%;
-    margin: 1%;
+    width: 23%;
+    padding: 1.70%;
+    margin: 0.75%;
 }
 
 .btn:hover {

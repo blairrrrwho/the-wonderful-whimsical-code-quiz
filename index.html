@@ -55,15 +55,19 @@
             <p>Your final score is <span id="display-score"></span></p>
             <br>
             <p>Enter Initials:
+            <form onsubmit="">
+                Enter initials: <input id="high-score-input" type="text" name="fname">
+                <input id="submit-button" class="button" type="submit" value="Submit">
+            </form>    
                 <!-- text: enter initials; clickable textbox to receive input; submit btn -->
-                <input type="text" name="Initials" id="input-initials">
+                <!-- <input type="text" name="Initials" id="input-initials"> -->
             </p>
         </section>
 
         <!-- Part 4: The high score page -->
         <!-- View High Scores nav link -->
         <section id="highscore-log" class="h-style hide">
-            <h2>High Scores</h2><br><br>
+            <h2>High Scores:</h2><br><br>
             <ol id="scores-log" style="text-align: center">
             </ol>
         </section>
