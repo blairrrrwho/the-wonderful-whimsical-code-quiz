@@ -25,8 +25,8 @@ body {
     flex-direction:row;
     justify-content: space-between;
     align-items: center;
-    margin: 2%; 
-    margin-bottom: 4%;
+    margin: 3%;
+    margin-bottom: 6%;
     padding: 1.5%;
     padding-left: 5%;
     padding-right: 5%;
@@ -127,7 +127,7 @@ button.option.btn {
     align-items: center;
 }
 
-#submit-button.btn, #clear-button.btn, #restart-button.btn {
+#submit-button.btn {
     font-size: 2.27em;
     cursor: pointer;
     padding: 1.5%;
@@ -136,6 +136,17 @@ button.option.btn {
     justify-content: center;
 }
 
+#clear-button.btn, #restart-button.btn {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.37em;
+    cursor: pointer;
+    padding: 1.5%;
+    width: 27%;
+}
 .h3-style {
     color:  rgba(114, 29, 118, 0.826);
 }
@@ -190,6 +201,9 @@ ol {
 .hide {
    display: none;
 } 
+
+
+                /* stuff i might implement  */
 
 /* .hide {
     display: none !important;

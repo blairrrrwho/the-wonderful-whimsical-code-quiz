@@ -102,10 +102,21 @@ let shuffledQuestions = null;
 var timer = document.getElementById("display-time");
 //value of time will be applied to each of the questions index, 
 //thereby questions have to be hoisted first, at top
-var timeLeft = questions.length * 15;
+var timeLeft = questions.length * 7;
 var timerInterval;
 var highScore;
-var olEl = document.getElementById('score-logs');
+
+//event listener for start quiz button -- starts the quiz by firing the startQuiz function
+startButton.addEventListener("click", startQuiz);
+//event listener for view high score navbar link
+navEl.addEventListener('click', elementHighScores);
+//event listener for submit button on initials page
+subButton.addEventListener('click', elementHighScores);
+//event listener for restart quiz button click
+restartBtn.addEventListener('click', reloadQuiz);
+//event listener to clear high score storage
+clearHighScoreBtn.addEventListener('click', clearStorage);
+
 
 //countdown timer function
 function setTime(){
@@ -121,6 +132,18 @@ function setTime(){
     }, 1000);
 }
 
+
+//function that fires on restart button click; reloads quiz to take again
+function reloadQuiz() {
+    location.reload();
+  }
+
+function clearStorage() {
+  localStorage.clear();
+  reloadQuiz();
+}
+
+
 function gameOver() {
     clearInterval(timerInterval);
     yourScore.textContent = highScore;
@@ -134,34 +157,7 @@ function returnToQuiz() {
 }
 
 
-//event listener for start quiz button -- starts the quiz by firing the startQuiz function
-startButton.addEventListener("click", startQuiz);
-//event listener for view high score navbar link
-navEl.addEventListener('click', elementHighScores);
-//event listener for submit button on initials page
-subButton.addEventListener('click', elementHighScores);
-//event listener for restart quiz button click
-restartBtn.addEventListener('click', reloadQuiz);
-//event listener to clear high score storage
-clearHighScoreBtn.addEventListener('click', clearStorage);
 
-
-
-
-//function that fires on restart button click; reloads quiz to take again
-function reloadQuiz() {
-    location.reload();
-  }
-
-function clearStorage() {
-  localStorage.clear();
-  reloadQuiz();
-}
-
-
-
-//hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
-//create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
 function startQuiz() {
     highScore = 0;
     //test to make sure our startQuiz function is being called w/startBtn when clicked
@@ -169,6 +165,8 @@ function startQuiz() {
     //meed to hide the startBtn + title page; need to display the first set of questions
     startButton.classList.add("hide");
     homePage.classList.add("hide");
+    restartBtn.setAttribute('class', 'hide');
+    clearHighScoreBtn.setAttribute('class', 'hide');
 
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     questionContainerElement.classList.remove("hide");
@@ -203,6 +201,7 @@ function userChoice(event) {
     if (!btnEl.matches(".option")) {
         return
     }
+
     if (btnEl.value !== questions[currentQuestionIndex].answer) {
         console.log(questions[currentQuestionIndex].answer);
         incorrectAnsDisplay.removeAttribute('class', 'hide');
@@ -213,14 +212,15 @@ function userChoice(event) {
         timeLeft -= 7;
         timer.textContent = timeLeft;
         console.log("user's a loser");
-    } else {
-        correctAnsDisplay.removeAttribute('class', 'hide');
-        setTimeout(function(){
-            correctAnsDisplay.setAttribute('class', 'hide');
-        }, 700);
-        highScore += 27;
-        // alert("Correct!")
-    }
+    }  else {
+            correctAnsDisplay.removeAttribute('class', 'hide');
+            setTimeout(function(){
+                correctAnsDisplay.setAttribute('class', 'hide');
+            }, 700);
+            highScore += 27;
+            // alert("Correct!")
+        }
+
     currentQuestionIndex++;
     if (timeLeft <= 0 || currentQuestionIndex === questions.length) {
         console.log(questions.length);
@@ -229,7 +229,7 @@ function userChoice(event) {
         endQuiz ();
     } else {
         setNextQuestion();
-    }
+      }
 }
 
 // main page after game is over w/score and initials input
@@ -243,7 +243,6 @@ function endQuiz() {
     subButton.removeAttribute('class', 'hide');
     subButton.classList.add('class', 'btn', 'btn-flex')
     localStorage.setItem('scoreContainer', highScore); 
-
 }
 
 // tells the scoreLog(){} to run
@@ -252,16 +251,24 @@ subButton.onclick = scoreLog;
 // logs the player's initials and score to the high score page
 // also saves the values to local storage as an object
 function scoreLog() {
+    subButton.setAttribute('class', 'hide');
+    restartBtn.removeAttribute('class', 'hide');
+    restartBtn.classList.add('class', 'btn', 'btn-flex');
+    clearHighScoreBtn.removeAttribute('class', 'hide');
+    clearHighScoreBtn.classList.add('class', 'btn', 'btn-flex');
+
     //need to take in and identify the user input data
     let userInitials = initials.value.trim();
     if (userInitials === "") {
         return;
     }
+
     var highScoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
     var playerScore = {
         score: highScore, 
         initials:userInitials
     };
+
     console.log(playerScore);
     //add the score to the array
     highScoreArray.push(playerScore);
@@ -273,6 +280,7 @@ function scoreLog() {
     highScoreArray.sort(function(x,y){
         return y.score - x.score;
     })
+
     scoreContainer.innerHTML = "";
     for (let i = 0; i < highScoreArray.length; i++) {
         let li = document.createElement("li");
@@ -280,20 +288,17 @@ function scoreLog() {
         scoreContainer.appendChild(li);
         scoreContainer.setAttribute('style', 'font-weight:bolder; color: rgba(27, 27, 93, 0.95)', 'line-height: 1.5')
     }
-    
+}
+
+
+
     // another way to write these? 
         // homePage.classList.add('hide');
         // quizComplete.classList.add('hide');
         // elementHighScores.classList.remove('hide');
         // questionContainerElement.classList.add('hide');
-    // homePage.classList.add('hide');
-    // quizComplete.setAttribute('class', 'hide');
-    // subButton.setAttribute('class', 'hide');
-    // elementHighScores.removeAttribute('class', 'hide');
-    // elementHighScores.setAttribute('class', 'h-style');
-}
 
-
+//notes sandy left: 
 
 //create an event listener and send to the next function - target the answer-btns div
 //create a function, and pass thru event, then define event.target.  Does it match the class you assigned to the button, or solve for the doesnt match.  Also, solve for the wrong answer -- as you have 3 wrong answers and one right one.  You solve for the incorrect and deduct pts off the time.  
