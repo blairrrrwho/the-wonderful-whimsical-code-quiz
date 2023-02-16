@@ -141,7 +141,7 @@ function setNextQuestion() {
         const option = currentQuest.options[i];
         console.log(option);
         var btn = document.createElement("button");
-        btn.setAttribute("class", "option");
+        btn.setAttribute("class", "option btn");
         btn.setAttribute("value", option);
         btn.textContent = i + "1" + ". " + option;
         answerButtonsEl.appendChild(btn);
