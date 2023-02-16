@@ -14,7 +14,7 @@
     <!-- Nav bar to show View High Scores page and Timer -->
     <nav id="navbar">
         <!-- View High Scores page -->
-        <a id="nav-score" class="navi" href="#score-logs">View High Scores</a>
+        <a id="nav-score" class="navi" href="">View High Scores</a>
         <!-- Timer!!!! -->
         <div id="timer">Time: <span id="display-time">0</span></div>
     </nav>
@@ -26,7 +26,7 @@
             <!-- Instructions -->
             <p> Try to answer the following code-related questions within the time limit.<br>
                 Keep in mind that incorrect answers will penalize your score and time by 3 seconds!
-            </p> <br>
+            </p> 
             <div class="btn-flex">
                 <button id=start-button class="btn">Start Quiz</button>
             </div>
@@ -35,7 +35,7 @@
         <!-- Part 2 - The loop of questions -->
         <!-- Container w/questions that will show after the quiz starts -->
         <div id="question-container" class="hide">
-            <h2 id="question" class="h-style"></h2>
+            <h2 id="question" class="h-style"></h2> <br>
             <div id="answer-btns" class="btn-flex"></div>
         </div>
 
@@ -54,28 +54,28 @@
             <h2>Hey! You've completed the quiz!</h2> <br><br>
             <p>Your final score is: <span id="display-score"></span></p>
             <br>
-            <form onsubmit="">
-                Enter initials:
-                <input id="input-initials" type="text" name="Initials">
-                <input id="submit-button" class="button" type="submit" value="Submit">
-            </form>    
+            <p>Enter Initials:
                 <!-- text: enter initials; clickable textbox to receive input; submit btn -->
-                <!-- <input type="text" name="Initials" id="input-initials"> -->
+                <input type="text" name="Initials" id="input-initials"><br>
+            </p>
         </section>
 
         <!-- Part 4: The high score page -->
         <!-- View High Scores nav link -->
-        <section id="highscore-log" class="h-style hide">
-            <h2>High Scores:</h2><br><br>
-            <ol id="scores-log" style="text-align: center"></ol>
+        <section id="highscore-log" class="hide"> <br>
+            <div id="hisco-id" class="h-style hide">
+                <h2 class="hiso-class">Log of High Scores:</h2> <br>
+                <ol id="scores-log" style="text-align:right"></ol>
+            </div>
         </section>
 
         <!-- Button controls area; other that start button -->
-        <div id="form-btns" class="btn-flex">
-            <button id="submit-button" class="btn hide">Submit</button>
-            <button id="restart-button" class="restart-button btn hide">Restart Quiz</button>
-            <button id="clear-button" class="clear-button btn hide">Clear High Scores</button>
+        <div class="btn-flex">
+            <button id="submit-button" class="btn-flex btn hide">Submit</button>
+            <button id="restart-button" class="btn-flex btn hide">Restart Quiz</button>
+            <button id="clear-button" class="btn-flex btn hide">Clear High Scores</button>
         </div>
+        
     </section>
 
 </body>

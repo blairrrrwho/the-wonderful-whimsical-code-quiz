@@ -26,11 +26,11 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 2%; 
-    margin-bottom: 1%;
+    margin-bottom: 4%;
     padding: 1.5%;
-    padding-left: 4%;
-    padding-right: 4%;
-    font-size: 1.4em;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.5em;
     font-weight: 600;
 }
 
@@ -56,39 +56,61 @@ body {
 }
 
 #homepage h1 {
-    font-size: 1.9em;
+    font-size: 2.2em;
 }
 
 #homepage p {
-    margin: 1.5%;
+    margin: 3%;
 }
 
 .h-style {
     text-align: center;
-    margin: 2%;
-    /* padding: 2%; */
-    font-size:1.75em;
+    margin-top: 4%;
+    font-size:1.8em;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
 }
 
-#question {
-    padding-top: 0%;;
+h2 {
+    padding-top: 0%;
+    font-size:1.8em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+h2#question {
+    margin-bottom: 2%;
+
+}
+
+#start-button {
+    padding: 2.5%;
+    margin: 2.5%;
+    width: 32%;
+}
+
+button.option.btn {
+    width: 27%;
+    margin: .5%;
+    padding: 1.35%; 
+    font-size: 1.37em;
 }
 
 .btn {
     background-color: var(--navy);
     color: rgba(255, 255, 255, 0.918);
-    font-size: 23px;
+    font-size: 1.27em;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;;
     cursor: pointer;
-    width: 23%;
-    padding: 1.70%;
-    margin: 0.75%;
+    width: 27%;
+    padding: 1%;
 }
 
 .btn:hover {
@@ -101,16 +123,21 @@ body {
     grid-template-columns: repeat(1);
     gap: 5px;
     margin: 10px, 0;
+    justify-content: center;
     align-items: center;
-    ;
+}
+
+#submit-button.btn, #clear-button.btn, #restart-button.btn {
+    font-size: 2.27em;
+    cursor: pointer;
+    padding: 1.5%;
+    margin: 7.5%;
+    width: 17%;
+    justify-content: center;
 }
 
 .h3-style {
     color:  rgba(114, 29, 118, 0.826);
-}
-
-li::marker {
-    text-align: center;
 }
 
 #input-initials {
@@ -121,6 +148,61 @@ li::marker {
     width: 7em;
 }
 
+div#hisco-id.h-style {
+    text-align: center;
+    font-size: 1.8em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: right;
+}
+
+#hisco-id {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    margin: 2% 10%;
+}
+
+#scores-log {
+    text-align: right;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    
+    border: solid;
+    border-radius: 4%;
+ }
+ 
+ /* #hisco-id ol {
+    width: 30%;
+} */
+
+ol {
+    background-color: rgba(218, 199, 183, 0.349);
+}
+
+#scores-log li {
+    list-style-type: decimal-leading-zero;
+}
+
 .hide {
    display: none;
 } 
+
+/* .hide {
+    display: none !important;
+  } */
+  
+
+/* remove hover state from mobile */
+/* @media (hover: hover) { */
+    /* when hover is supported */
+    /* .button:hover {
+        background-color: var(--hover-text-color);
+        cursor: pointer;
+    }
+}
+ */
+

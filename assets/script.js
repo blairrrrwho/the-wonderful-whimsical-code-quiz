@@ -85,6 +85,8 @@ const yourScore = document.getElementById("display-score");
 const initials = document.getElementById("input-initials");
 //high scores page
 const elementHighScores = document.getElementById("highscore-log");
+//div inside of highscore-log section tag; couldn't get styling to work on section tag
+// const viewHighScores = document.getElementById("hisco-id");
 //element in which the high scores will log to; the ol tag
 const scoreContainer = document.getElementById("scores-log");
 //will be located on the initials form page
@@ -105,7 +107,7 @@ var timerInterval;
 var highScore;
 var olEl = document.getElementById('score-logs');
 
-
+//countdown timer function
 function setTime(){
     //sets interval in a variable
     timerInterval = setInterval(() => {
@@ -119,18 +121,31 @@ function setTime(){
     }, 1000);
 }
 
-var olEl = document.getElementById("scores-log")
+function gameOver() {
+    clearInterval(timerInterval);
+    yourScore.textContent = highScore;
+    quizComplete.classList.remove('hide');
+    questionContainerElement.classList.add('hide');
+}
+
+function returnToQuiz() {
+    homePage.classList.remove('hide');
+    elementHighScores.classList.add('hide');
+}
+
+
+//event listener for start quiz button -- starts the quiz by firing the startQuiz function
+startButton.addEventListener("click", startQuiz);
+//event listener for view high score navbar link
+navEl.addEventListener('click', elementHighScores);
+//event listener for submit button on initials page
+subButton.addEventListener('click', elementHighScores);
 //event listener for restart quiz button click
 restartBtn.addEventListener('click', reloadQuiz);
 //event listener to clear high score storage
 clearHighScoreBtn.addEventListener('click', clearStorage);
-//event listener for submit button on initials page
-subButton.addEventListener('click', elementHighScores);
-//event listener for start quiz button -- starts the quiz by firing the startQuiz function
-startButton.addEventListener("click", startQuiz);
 
-//event listener for view high score navbar link
-navEl.addEventListener('click', elementHighScores);
+
 
 
 //function that fires on restart button click; reloads quiz to take again
@@ -142,6 +157,7 @@ function clearStorage() {
   localStorage.clear();
   reloadQuiz();
 }
+
 
 
 //hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
@@ -189,20 +205,20 @@ function userChoice(event) {
     }
     if (btnEl.value !== questions[currentQuestionIndex].answer) {
         console.log(questions[currentQuestionIndex].answer);
-        incorrectAnsDisplay.removeAttribute('class');
+        incorrectAnsDisplay.removeAttribute('class', 'hide');
         setTimeout(function(){
-            incorrectAnsDisplay.setAttribute('class', 'hide')
-        }, 800);
+            incorrectAnsDisplay.setAttribute('class', 'hide');
+        }, 700);
         // alert("Incorrect! You lost 3 seconds");
         timeLeft -= 7;
         timer.textContent = timeLeft;
         console.log("user's a loser");
     } else {
-        correctAnsDisplay.removeAttribute('class');
+        correctAnsDisplay.removeAttribute('class', 'hide');
         setTimeout(function(){
-            correctAnsDisplay.setAttribute('class', 'hide')
-        }, 800);
-        highScore += 10;
+            correctAnsDisplay.setAttribute('class', 'hide');
+        }, 700);
+        highScore += 27;
         // alert("Correct!")
     }
     currentQuestionIndex++;
@@ -216,69 +232,67 @@ function userChoice(event) {
     }
 }
 
+// main page after game is over w/score and initials input
 function endQuiz() {
     clearInterval(timerInterval);
     yourScore.textContent = highScore;
-    localStorage.setItem('scoreContainer', highScore); 
     quizComplete.removeAttribute('class', 'hide');
-    quizComplete.setAttribute('class', 'h-style')
+    quizComplete.setAttribute('class', 'h-style');
+    quizComplete.setAttribute('style', 'margin-top: 0%');
+    questionContainerElement.setAttribute('class', 'hide');   
     subButton.removeAttribute('class', 'hide');
-    subButton.setAttribute('class', 'btn');
-    questionContainerElement.setAttribute('class', 'hide');
+    subButton.classList.add('class', 'btn', 'btn-flex')
+    localStorage.setItem('scoreContainer', highScore); 
+
 }
 
-subButton.onclick = scoreLog();
+// tells the scoreLog(){} to run
+subButton.onclick = scoreLog;
 
-function scoreLog(event) {
-    event.preventDefault();
+// logs the player's initials and score to the high score page
+// also saves the values to local storage as an object
+function scoreLog() {
     //need to take in and identify the user input data
     let userInitials = initials.value.trim();
     if (userInitials === "") {
-        // return;
-        var  highScoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
-        var playerScore = {
-            score: highScore, 
-            initials:userInitials
-        }
-        //add the score to the array
-        highScoreArray.push(playerScore);
-        //when sending to local systme must stringify and then set it
-        localStorage.setItem("highScores", JSON.stringify(highScoreArray));
+        return;
+    }
+    var highScoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
+    var playerScore = {
+        score: highScore, 
+        initials:userInitials
     };
-    // another way to write these? 
-        // homePage.classList.add('hide');
-        // quizComplete.classList.add('hide');
-        // elementHighScores.classList.remove('hide');
-        // questionContainerElement.classList.add('hide');
-    homePage.classList.add('hide');
+    console.log(playerScore);
+    //add the score to the array
+    highScoreArray.push(playerScore);
+    //when sending to local systmem must stringify and then set it
+    localStorage.setItem("highScores", JSON.stringify(highScoreArray));
     quizComplete.setAttribute('class', 'hide');
     subButton.setAttribute('class', 'hide');
     elementHighScores.removeAttribute('class', 'hide');
-    elementHighScores.setAttribute('class', 'h-style');
-
     highScoreArray.sort(function(x,y){
         return y.score - x.score;
     })
     scoreContainer.innerHTML = "";
     for (let i = 0; i < highScoreArray.length; i++) {
-        let liTag = document.createElement("li");
-        liTag.textContent = highScoreArray[i].initials + " - " + highScoreArray[i].score;
-        scoreContainer.appendChild(liTag);
-        scoreContainer.setAttribute('style', 'color: rgba(27, 27, 93, 0.95)')
+        let li = document.createElement("li");
+        li.textContent = highScoreArray[i].initials + " - " + highScoreArray[i].score;
+        scoreContainer.appendChild(li);
+        scoreContainer.setAttribute('style', 'font-weight:bolder; color: rgba(27, 27, 93, 0.95)', 'line-height: 1.5')
     }
+    
+    // another way to write these? 
+        // homePage.classList.add('hide');
+        // quizComplete.classList.add('hide');
+        // elementHighScores.classList.remove('hide');
+        // questionContainerElement.classList.add('hide');
+    // homePage.classList.add('hide');
+    // quizComplete.setAttribute('class', 'hide');
+    // subButton.setAttribute('class', 'hide');
+    // elementHighScores.removeAttribute('class', 'hide');
+    // elementHighScores.setAttribute('class', 'h-style');
 }
 
-function gameOver() {
-    clearInterval(timerInterval);
-    yourScore.textContent = highScore;
-    quizComplete.classList.remove('hide');
-    questionContainerElement.classList.add('hide');
-}
-
-function returnToQuiz() {
-    homePage.classList.remove('hide');
-    elementHighScores.classList.add('hide');
-}
 
 
 //create an event listener and send to the next function - target the answer-btns div
