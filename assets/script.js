@@ -1,4 +1,4 @@
-//array of questions
+// array of questions
 const questions = [
     {
         // Question #1
@@ -62,11 +62,11 @@ const questions = [
     }
 ]
 
-//first div
+// first div -- Part 1
 const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("homepage");
-//highscores - top div
-const viewHighScores = document.getElementById("viewhighscore");
+//highscores page -- top left in navbar 
+const navEl = document.getElementById("nav-score");
 //timer
 var timer = document.getElementById("display-time");
 //questions
@@ -84,7 +84,7 @@ const yourScore = document.getElementById("display-score");
 const subButton = document.getElementById("submit-button");
 const clearButton = document.getElementById("clear-button");
 const restartButton = document.getElementById("restart-button");
-//highscores - end
+//highscores page - end
 const elementHighScores = document.getElementById("highscore-log");
 const scoreContainer = document.getElementById("scores-log");
 
@@ -98,12 +98,12 @@ let currentQuestionIndex = 0;
 var time = questions.length * 15;
 var clockTimer;
 
-// Need to add these things into the rest of our functions now
-//starts the quiz -- event listener to button, app goes to function
+//starts the quiz -- event listener for start quiz button to start function
 startButton.addEventListener("click", startGame);
 
-//first function?? hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
-//create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
+//first function?? 
+// hide the intro div, unhide the questions div -- apply to the parent which is the main div of the 'box'
+// create a clock -- using the time variable -- define it, then apply a timer to execute the function by each second countdown
 
 function startGame() {
     // Test to make sure our startGame function is being called w/startBtn when clicked
@@ -129,14 +129,16 @@ function clock(){
     }
 }
 
-//this function is to pull and display the question and display to the h2 in the question h2 div, and then loop thru the options array and dynamically display to the answer-btns on html
+//this function is to pull and display the question and display to the h2 in the question h2 div,
+// and then loop thru the options array and dynamically display to the answer-btns on html
 function setNextQuestion() {
     var currentQuest = questions[currentQuestionIndex]
 
     questionElement.textContent = currentQuest.question;
 
     answerButtonsEl.innerHTML = '';
-    //setup a loop such as .each loop thru the options array -- an array solves for one index at a time -- solve to produce a button element and add both a class and value attribute to the button element
+    //setup a loop such as .each loop thru the options array -- an array solves for one index at a time
+    //  -- solve to produce a button element and add both a class and value attribute to the button element
     for (let i = 0; i < currentQuest.options.length; i++) {
         const option = currentQuest.options[i];
         console.log(option);
@@ -185,14 +187,16 @@ function userChoice(event) {
 
 function endGame() {
     clearInterval(clockTimer);
-    quizComplete.removeAttribute('class');
-    subButton.removeAttribute('class');
-    yourScore.textContent=time; 
+    quizComplete.removeAttribute('class', 'hide');
+    quizComplete.setAttribute('class', 'h-style')
+    subButton.removeAttribute('class', 'hide');
+    subButton.setAttribute('class', 'btn');
+    yourScore.textContent = time; 
     questionContainerElement.setAttribute('class', 'hide');
     localStorage.setItem('scoreContainer', time);
 }
 
-subButton.onclick=scoreLog;
+subButton.onclick = scoreLog;
 
 function scoreLog() {
     let userInitials = initials.value.trim();
@@ -208,7 +212,8 @@ function scoreLog() {
     localStorage.setItem("high-scores", JSON.stringify(highscores));
     quizComplete.setAttribute('class', 'hide');
     subButton.setAttribute('class', 'hide');
-    elementHighScores.removeAttribute('class');
+    elementHighScores.removeAttribute('class', 'hide');
+    elementHighScores.setAttribute('class', 'h-style');
     highscores.sort(function(x,y){
         return y.score - x.score;
     })
@@ -217,6 +222,7 @@ function scoreLog() {
         let li = document.createElement("li");
         li.textContent = highscores[i].initials + " - " + highscores[i].score;
         scoreContainer.appendChild(li);
+        scoreContainer.setAttribute('style', 'color: rgba(27, 27, 93, 0.95)')
     }
 
 }

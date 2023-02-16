@@ -14,7 +14,7 @@
     <!-- Nav bar to show View High Scores page and Timer -->
     <nav id="navbar">
         <!-- View High Scores page -->
-        <a id="viewhighscore" class="navi" href="">View High Scores</a>
+        <a id="nav-score" class="navi" href="">View High Scores</a>
         <!-- Timer!!!! -->
         <div id="timer">Time: <span id="display-time">0</span></div>
     </nav>
@@ -35,11 +35,8 @@
         <!-- Part 2 - The loop of questions -->
         <!-- Container w/questions that will show after the quiz starts -->
         <div id="question-container" class="hide">
-
-            <h2 id="question" class="h-style">Question 1/10</h2>
-            <div id="answer-btns" class="btn-flex">
-                <!-- need to figure out how to style answer buttons here -->
-            </div>
+            <h2 id="question" class="h-style"></h2>
+            <div id="answer-btns" class="btn-flex"></div>
         </div>
 
         <!-- Part that will class Correct/Incorrect after response is chosen -->
@@ -52,7 +49,7 @@
             </div>
         </div>
 
-        <!-- Part 3 - The finished section - displays score -->
+        <!-- Part 3 - The finished section / All done! - displays score -->
         <section id="score-input" class="h-style hide">
             <h2>Hey! You've completed the quiz!</h2> <br><br>
             <p>Your final score is <span id="display-score"></span></p>
@@ -63,17 +60,17 @@
             </p>
         </section>
 
-        <!-- Part 4: The high score log section -->
-        <!-- Part 5 - the View High Scores nav link -->
+        <!-- Part 4: The high score page -->
+        <!-- View High Scores nav link -->
         <section id="highscore-log" class="h-style hide">
             <h2>High Scores</h2><br><br>
-            <ul id="scores-log" style="text-align: left">
-            </ul>
+            <ol id="scores-log" style="text-align: center">
+            </ol>
         </section>
 
         <!-- Button controls area; other that start button -->
         <div id="form-btns" class="btn-flex">
-            <button id="submit-button" class="submit-button btn hide">Submit</button>
+            <button id="submit-button" class="btn hide">Submit</button>
             <button id="clear-button" class="clear-button btn hide">Clear High Scores</button>
             <button id="restart-button" class="restart-button btn hide">Restart Quiz</button>
         </div>

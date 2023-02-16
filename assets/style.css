@@ -26,19 +26,20 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 3%; 
-    padding: 1%;
+    margin-top: 2%;
+    padding: 2%;
     font-size: 1.5em;
     font-weight: 600;
 }
 
-#viewhighscore {
+#nav-score {
     justify-content: flex-start;
     color: rgba(114, 29, 118, 0.826);
     cursor: pointer;
     text-decoration: none;
 }
 
-#viewhighscore:hover {
+#nav-score:hover {
     color: var(--navy);
 }
 
@@ -52,10 +53,18 @@ body {
     color: var(--navy);
 }
 
+#homepage h1 {
+    font-size: 2.0em;
+}
+
+#homepage p {
+    margin: 1%;
+}
+
 .h-style {
     text-align: center;
-    margin: 1%;
-    padding: 2%;
+    margin: 2%;
+    /* padding: 2%; */
     font-size: 1.80em;
     display: flex;
     flex-direction: column;
@@ -96,6 +105,18 @@ body {
 
 .h3-style {
     color:  rgba(114, 29, 118, 0.826);
+}
+
+li::marker {
+    text-align: center;
+}
+
+#input-initials {
+    font-size: 0.75em;
+    padding: .30em;
+    margin: .2em;
+    text-align: center;
+    width: 7em;
 }
 
 .hide {

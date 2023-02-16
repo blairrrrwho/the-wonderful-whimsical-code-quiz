@@ -3,6 +3,7 @@
 * when the timer ends, it doesn't end at 0; it ends at -1
 * when the timer ends, it doesn't jump to the end game function
 * the freaking buttons man... i just want them all to look the same 
+* shuffle questions
 * add clear button to last page to clear high scores
 * add restart or reset button to restart or reset the quiz
 * link the high scores hyperlink to the actual high scores log
