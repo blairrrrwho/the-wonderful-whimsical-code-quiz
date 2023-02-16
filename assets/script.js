@@ -98,16 +98,21 @@ let shuffledQuestions = null;
 //thereby questions have to be hoisted first, at top
 //timer -- top right in navbar
 var timer = document.getElementById("display-time");
-var clockTimer;
-var time = questions.length * 15;
+var timeLeft = questions.length * 15;
+var timerInterval;
 
-function clock(){
-    time--;
-    timer.textContent = time;
-
-    if(time < 0){
-     time = 0;
-    }
+function setTime(){
+    //sets interval in a variable
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timer.textContent = timeLeft;
+        
+        if (timeLeft <= 0) {
+            //stops the execution of action at set interval
+            gameOver();
+        }
+    }, 1000);
+ 
 }
 
 
@@ -197,7 +202,7 @@ function userChoice(event) {
         // alert("Correct!")
     }
     currentQuestionIndex++;
-    if (time === 0 || currentQuestionIndex === questions.length) {
+    if (time <= 0 || currentQuestionIndex === questions.length) {
         console.log(questions.length);
         console.log("help lol");
         console.log(highScore);
@@ -209,16 +214,16 @@ function userChoice(event) {
 
 function endQuiz() {
     clearInterval(clockTimer);
-    yourScore.textContent = highScore 
+    yourScore.textContent = highScore;
+    localStorage.setItem('scoreContainer', highScore); 
     quizComplete.removeAttribute('class', 'hide');
     quizComplete.setAttribute('class', 'h-style')
     subButton.removeAttribute('class', 'hide');
     subButton.setAttribute('class', 'btn');
     questionContainerElement.setAttribute('class', 'hide');
-    localStorage.setItem('scoreContainer', time);
 }
 
-subButton.onclick = scoreLog;
+subButton.onclick = scoreLog();
 
 function scoreLog(event) {
     event.preventDefault();
