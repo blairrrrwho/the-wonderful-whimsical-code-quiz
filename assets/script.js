@@ -63,43 +63,48 @@ const questions = [
 ]
 
 //first div -- the hompage
-const startButton = document.getElementById("start-button");
 const homePage = document.getElementById("homepage");
-//highscores page -- top left in navbar 
+const startButton = document.getElementById("start-button");
+//highscores page link -- top left in navbar 
 const navEl = document.getElementById("nav-score");
 //questions container
 const questionContainerElement = document.getElementById("question-container");
+//element where the question will be displayed
 const questionElement = document.getElementById("question");
+//element wwhere the multiple choice option buttons will be displayed
 const answerButtonsEl = document.getElementById("answer-btns");
-//answers
+//correct answer message
 const correctAnsDisplay = document.getElementById("correct-ans");
+//incorrect answer message
 const incorrectAnsDisplay = document.getElementById("incorrect-ans");
-//scores
+//the score page - displays after quiz is over
 const quizComplete = document.getElementById("score-input");
+//inside the span tag; where the score number will be displayed
 const yourScore = document.getElementById("display-score");
-//highscores page - end
-const elementHighScores = document.getElementById("highscore-log");
-const scoreContainer = document.getElementById("scores-log");
-// initials
+//initials
 const initials = document.getElementById("input-initials");
+//high scores page
+const elementHighScores = document.getElementById("highscore-log");
+//element in which the high scores will log to; the ol tag
+const scoreContainer = document.getElementById("scores-log");
 //will be located on the initials form page
 const subButton = document.getElementById("submit-button");
 //will be located on the high scores page
 const restartBtn = document.getElementById('restart-button');
 //will be located on high scores page
 const clearHighScoreBtn = document.getElementById('clear-button');
-let highScore;
-
 //variables to track array and time
 let currentQuestionIndex = 0;
 let shuffledQuestions = null;
-
-//value of time will be applied to each of the questions index, 
-//thereby questions have to be hoisted first, at top
 //timer -- top right in navbar
 var timer = document.getElementById("display-time");
+//value of time will be applied to each of the questions index, 
+//thereby questions have to be hoisted first, at top
 var timeLeft = questions.length * 15;
 var timerInterval;
+var highScore;
+var olEl = document.getElementById('score-logs');
+
 
 function setTime(){
     //sets interval in a variable
@@ -112,27 +117,26 @@ function setTime(){
             gameOver();
         }
     }, 1000);
- 
 }
 
-
-//event listener for view high score navbar link
-navEl.addEventListener('click', scoreLog);
-//event listener for start quiz button -- starts the quiz by firing the startQuiz function
-startButton.addEventListener("click", startQuiz);
-//event listener for submit button on initials page
-subButton.addEventListener('click', scoreLog);
 var olEl = document.getElementById("scores-log")
 //event listener for restart quiz button click
 restartBtn.addEventListener('click', reloadQuiz);
 //event listener to clear high score storage
 clearHighScoreBtn.addEventListener('click', clearStorage);
+//event listener for submit button on initials page
+subButton.addEventListener('click', scoreLog);
+//event listener for start quiz button -- starts the quiz by firing the startQuiz function
+startButton.addEventListener("click", startQuiz);
+
+//event listener for view high score navbar link
+navEl.addEventListener('click', h);
+
 
 //function that fires on restart button click; reloads quiz to take again
 function reloadQuiz() {
-  location.reload();
-}
-
+    location.reload();
+  }
 
 function clearStorage() {
   localStorage.clear();
@@ -153,7 +157,6 @@ function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     questionContainerElement.classList.remove("hide");
     //start clock -- add to a timer to execute by each second countdown
-    clockTimer = setInterval(clock, 1000)
     //the first thing our startQuiz should do is show the next set of questions
     setNextQuestion();
 }
@@ -264,36 +267,17 @@ function scoreLog(event) {
     }
 }
 
-// let timeEl = document.getElementById('clock');
-// let secondsLeft = 90;
-// function setTime() {
-//   // Sets interval in variable
-//   timerInterval = setInterval(function () {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft;
+function gameOver() {
+    clearInterval(timerInterval);
+    yourScore.textContent = highScore;
+    quizComplete.classList.remove('hide');
+    questionContainerElement.classList.add('hide');
+}
 
-//     if (secondsLeft <= 0) {
-//       // Stops execution of action at set interval
-
-//       testOver();
-//     }
-//   }, 1000);
-// }
-
-// function testOver() {
-//   clearInterval(timerInterval);
-//   scoreEl.textContent = highScore;
-//   finalScoreEl.classList.remove('hide');
-//   quizEl.classList.add('hide');
-// }
-
-// function returnToQuiz() {
-//   preQuizElement.classList.remove('hide');
-//   highScoreEl.classList.add('hide');
-// }
-
-
-
+function returnToQuiz() {
+    homePage.classList.remove('hide');
+    elementHighScores.classList.add('hide');
+}
 
 
 //create an event listener and send to the next function - target the answer-btns div
